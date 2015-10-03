@@ -63,12 +63,12 @@ exports = module.exports = function(app) {
 	
 	// Website
 	app.get('/', routes.views.index);
-	app.get('/meetups', routes.views.meetups);
-	app.get('/meetups/:meetup', routes.views.meetup);
+	//app.get('/meetups', routes.views.meetups);
+	//app.get('/meetups/:meetup', routes.views.meetup);
 	app.get('/members', routes.views.members);
 	app.get('/members/moderators', routes.views.mentors);
 	app.get('/member/:member', routes.views.member);
-	app.get('/organisations', routes.views.organisations);
+	//app.get('/organisations', routes.views.organisations);
 	app.get('/credits', routes.views.links);
 	app.get('/credits/:tag?', routes.views.links);
 	app.all('/credits/credit/:link', routes.views.link);
@@ -81,7 +81,7 @@ exports = module.exports = function(app) {
 	app.all('/history', routes.views.history);
 	app.get('/moderating', routes.views.mentoring);
 
-	app.get('/showbag', routes.views.showbag);
+	//app.get('/showbag', routes.views.showbag);
 	
 	// Session
 	app.all('/join', routes.views.session.join);
@@ -103,7 +103,7 @@ exports = module.exports = function(app) {
 	app.all('/me/create/link', routes.views.createLink);
 
 	// Tools
-	app.all('/notification-center', routes.views.tools['notification-center']);
+	//app.all('/notification-center', routes.views.tools['notification-center']);
 	
 	// Maintenace
 	app.all('/maintenance', routes.views.maintenance);

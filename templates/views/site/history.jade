@@ -22,7 +22,7 @@ block content
 						iframe(height="600px", width="100%", src="http://www.youtube.com/embed/m3PA4rb-O6U", frameborder="0",
 						allowfullscreen="")
 				.modal-footer(style="background: #f7f7f7;")
-					button.btn(style="background: #333; color: white;", data-dismiss="modal", aria-hidden="true") Close
+					button.btn.btn-primary(data-dismiss="modal", aria-hidden="true") Close
 					
 	div(style=' min-height: 100%;     height:100%;     width:100%;    position:absolute;    overflow:hidden;')
 		iframe#chronasWindow(onload="if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://localhost:3000/history') {document.getElementById('loadergif').style.display='none'; console.error('bling'+document.getElementById(\'chronasWindow\').src); document.getElementById('enterNow').style.display='block';}", src='http://127.0.0.1:8000/en/map/vas_6#4/35.35/32.17?year=-52', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
@@ -42,7 +42,7 @@ block content
 						input#tsgo(type='hidden', name='action', value='tsgo')
 						#tssu(type='submit', name='action', onClick="this.parentNode.submit();", value='tsgo', style="display: none")
 						button#enterNow(style='display: none', type='button', onclick='frameload();', value='enter-history')
-							span.enterText ENTER
+							span.enterText(data-toggle='tooltip', data-placement='top', title='Please note that the realm data is not final and will be editable by the community in the final release.') ENTER
 				.loader-section.section-left
 					.levelSelection
 						.lSwrap
@@ -114,6 +114,7 @@ block content
 
 block js
 	script(src='/package/unitegallery/js/jquery-11.0.min.js')
+	script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
 	script(src='/package/unitegallery/js/unitegallery.js')
 	script(src='/package/unitegallery/themes/grid/ug-theme-grid.js')
 		
@@ -184,6 +185,8 @@ block js
 		};
 
 		jQuery(document).ready(function(){
+
+			$('[data-toggle="tooltip"]').tooltip();
 
 			$( "body" ).prepend( $("#infoModal") );
 					jQuery("#gallery").unitegallery({

@@ -12,7 +12,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	locals.section = 'me';
-	locals.page.title = 'Create a blog post - Chronas';
+	locals.page.title = 'Chronas: Create Post';
 	
 	view.on('post', { action: 'create-post' }, function(next) {
 

@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	locals.section = 'me';
-	locals.page.title = 'Add a link - Chronas';
+	locals.page.title = 'Chronas: Add Link';
 	
 	view.on('post', { action: 'add-link' }, function(next) {
 

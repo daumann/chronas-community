@@ -23,7 +23,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	locals.section = 'me';
-	locals.page.title = 'Chronas Community: Create a thread';
+	locals.page.title = 'Chronas: Create Thread';
 	
 	view.on('post', { action: 'create-thread' }, function(next) {
 

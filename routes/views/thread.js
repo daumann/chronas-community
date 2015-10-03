@@ -41,7 +41,7 @@ exports = module.exports = function(req, res) {
                         });
                         next();
                     });
-					locals.page.title = thread.title + ' - Talk';
+					locals.page.title = 'Chronas: ' + thread.title;
 
                     
 				} else {

@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	locals.section = 'meetups';
-	locals.page.title = 'Meetups - Chronas';
+	locals.page.title = 'Chronas: Meetups';
 	
 	locals.rsvpStatus = {};
 	
