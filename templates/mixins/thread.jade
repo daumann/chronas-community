@@ -1,0 +1,47 @@
+mixin thread(thread)
+    .col-sm-4
+    article(role="article", itemscope itemtype="http://schema.org/BlogPosting").post-card        
+        .midcol.unvoted
+            form(method='post')
+                input(type='hidden', name='action', value='upvote-thread')
+                input(type='hidden', name='tid', value=''+thread._id)
+                .arrow.up.login-required(type='submit', name='action', onClick="this.parentNode.submit();", value='upvote-thread')
+            .score.unvoted=thread.rating
+            form(method='post')
+                input(type='hidden', name='action', value='downvote-thread')
+                input(type='hidden', name='tid', value=''+thread._id)
+                .arrow.down.login-required(onclick=" this.parentNode.submit();", name='action', value='downvote-thread')
+        if thread.image.exists
+            a(href='/talk/thread/' + thread.slug).post-image.talkk: img(src=thread._.image.thumbnail(100,100), alt=thread.title).img-responsive
+        else
+            a(href='/talk/thread/' + thread.slug).post-image.talkk: img(src="/images/CPsmall.png", alt=thread.title).img-responsive
+        .post-summary.talkk
+            .post-byline
+                .post-author: =space
+                    | <span>&nbsp;</span>
+                    a(href='/member/' + thread.author.name.full.replace(/ /g,"-").toLowerCase())=thread.author.name.full
+                .date-stamp: em=" submitted " + moment(thread.publishedDate).fromNow() + " by "
+                
+
+            h4(itemprop='name').post-title.mv-1.talkk
+                a(href='/talk/thread/' + thread.slug, itemprop='url')=thread.title
+            //-.post-content-brief(itemprop='description')!= thread.content.brief
+    //-article(role="article", itemscope itemtype="http://schema.org/BlogPosting").blog-post
+        .blog-post__date.illustrative-heading
+            span.illustrative-heading__line
+            span.illustrative-heading__text
+                time(datetime=thread._.publishedDate.format('YYYY-MM-DD'), itemprop='datePublished')=thread._.publishedDate.format('MMMM D, YYYY')
+        .blog-post__image
+            a(href='/talk/thread/' + thread.slug)
+                if thread.image.exists
+                    img(src=thread._.image.fit(770,510), alt=thread.title).img-responsive
+        .blog-post__content(data-ks-editable=editable(user, { list: 'Post', id: thread.id }))
+            h3(itemprop='name').blog-post__heading: a(href='/talk/thread/' + thread.slug, itemprop='url')= thread.title
+            if thread.author
+                h5.blog-post__author by #{thread.author.name.full}
+            if thread.categories && thread.categories.length
+                ul.list-unstyled.tags-list
+                    each tag, i in thread.categories
+                        li: a(href='/talk/' + tag.key)= tag.name
+            .description(itemprop='description')!= thread.content.brief
+            p: a(href='/talk/thread/' + thread.slug, itemprop='url') Read more &rarr;

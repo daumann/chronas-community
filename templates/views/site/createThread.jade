@@ -1,0 +1,66 @@
+extends ../../layouts/default
+
+block content
+
+    .section
+        .container
+            form(method='post', enctype='multipart/form-data', autocomplete='off', novalidate).form-horizontal.create-form.profile-form
+                input(type='hidden', name='action', value='create-thread')
+                
+                .row: .col-sm-8.col-sm-offset-2
+                    
+                    //- Title
+                    .form-group
+                        h1 Create a new thread
+                        input(type='text', id='post-title', name='title', placeholder='Thread title').input.input-xl.input-faded
+                    
+                    
+                    //- Image
+                    .form-group
+                        label Upload image
+                        input(type='file', name='image_upload')
+                    
+                    //- Content
+                    .form-group
+                        label Thread content
+                        textarea(name='content.extended', class='wysiwyg').input.input-faded
+                    
+                    .form-group
+                        input(type='hidden', name='categories', value='55f07f0a869815a8559c00ed')
+                        label Category
+                        .drodown
+                            button#selectCategory.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                                | General Discussion 
+                                span.caret
+                            ul.dropdown-menu(aria-labelledby='selectCategory')
+                                li
+                                    a(style="cursor: pointer;", onclick="console.debug(this.parentNode.parentNode.parentNode.childNodes[1].innerHTML=this.innerHTML+' <span class=\"caret\"></span>'); this.parentNode.parentNode.parentNode.parentNode.childNodes[1].value='55f07f0a869815a8559c00ed' ") General Discussion
+                                li
+                                    a(style="cursor: pointer;", onclick="console.debug(this.parentNode.parentNode.parentNode.childNodes[1].innerHTML=this.innerHTML+' <span class=\"caret\"></span>'); this.parentNode.parentNode.parentNode.parentNode.childNodes[1].value='55f07f1d869815a8559c00ee' ") Bug Report
+                                li
+                                    a(style="cursor: pointer;", onclick="console.debug(this.parentNode.parentNode.parentNode.childNodes[1].innerHTML=this.innerHTML+' <span class=\"caret\"></span>'); this.parentNode.parentNode.parentNode.parentNode.childNodes[1].value='55f07f2d869815a8559c00ef' ") Feature Request
+                                li
+                                    a(style="cursor: pointer;", onclick="console.debug(this.parentNode.parentNode.parentNode.childNodes[1].innerHTML=this.innerHTML+' <span class=\"caret\"></span>'); this.parentNode.parentNode.parentNode.parentNode.childNodes[1].value='55f07f55869815a8559c00f0' ") Improvement Idea
+
+
+
+                    //- Submit
+                    .form-group
+                        button(type='submit', data-loading-text="Changing...").btn.btn-lg.btn-primary.btn-block Create Thread
+                        
+block js
+    script(src='/js/lib/bootstrap/button.js')
+    script(src='/js/lib/tinymce/tinymce.min.js')
+    script(src='/js/lib/tinymce/jquery.tinymce.min.js')
+    script.
+        jQuery(function($) {
+            $( "#post-title" ).focus();
+            tinymce.init({
+                selector: 'textarea.wysiwyg',
+                menubar: false,
+                height: 400,
+                plugins: [ 'code', 'link' ],
+                toolbar: 'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link | code',
+                skin: 'keystone'
+            });
+        });

@@ -1,0 +1,13 @@
+this._getIconUrl('icon')
+
+
+var greenIcon = L.icon({
+    iconUrl: '/static/staticReqs/customIcons/personMarkerMil.png',
+   // shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 38], // size of the icon
+    iconAnchor:   [22, 38], // point of the icon which will correspond to marker's location
+});
+this.options.icon=greenIcon;
+
+            console.debug("!! initIcon",this._getIconUrl('icon'))

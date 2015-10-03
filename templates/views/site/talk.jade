@@ -1,0 +1,42 @@
+extends ../../layouts/default
+
+include ../../mixins/thread
+
+block intro
+    .page-intro: .container
+        h1.page-title=data.category ? data.category.name : 'All threads'
+        p.lead
+            | Chronas Community Talk: contributed by our members.&nbsp;
+            if !user
+                br
+                a(href='/join').js-auth-trigger Join now
+                | &nbsp;to start a new thread.
+            else
+                br
+                a(href='/me/create/thread') Create new thread
+
+block content
+    .page-content: .container
+        .row
+            div(class= data.categories.length || !data.threads.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+                if filters.category && !data.category
+                    h3 Invalid Category.
+                else
+                    if data.threads.length
+                        .thread-cards.row(itemscope itemtype="http://schema.org/Blog")
+                            each thread in data.threads
+                                +thread(thread)
+                    else
+                        if data.category
+                            h3.text-muted No threads in the category #{data.category.name}.
+                        else
+                            h3.text-muted There are no threads yet.
+            
+            if data.categories.length
+                .col-md-2
+                    if data.categories.length
+                        h5.text-muted Filter by tag
+                        ul.list-unstyled.tags-list
+                            li: a(href='/talk', class=!data.categories ? 'active' : false) All
+                            each tag in data.categories
+                                li: a(href='/talk/' + tag.key, class=data.category && data.category.id == tag.id ? 'active' : false).list-group-item= tag.name

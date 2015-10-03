@@ -1,0 +1,36 @@
+//- SITE FOOTER
+footer.site-footer.site-footer--sticky: .container
+	.row
+		.col-sm-2
+		.col-sm-4
+			h5.footer-heading About
+			p Chronas is a history project linking Wikipedia and Wikidata with a chronological and cartographical view. 
+			ul.list-inline
+				li: a(href='/about') More about Chronas
+				li: a(href='mailto:dietmar.aumann@gmail.com') Contact us
+
+		.col-sm-5
+			.row
+				.col-xs-5
+					h5.footer-heading Community
+					ul
+						li: a(href='/members') Members
+						li: a(href='/members/moderators') Moderators
+						li: a(href='/moderating') Become a Moderator
+						if !user
+							li: a(href='/join').js-auth-trigger Become a Member
+				.col-xs-6
+					h5.footer-heading Resources
+					ul
+						//li: a(href='/organisations') Organisations
+						li: a(href='/blog') Blog
+						li: a(href='/talk') Talk
+						li: a(href='/credits') Credits
+
+				//.col-xs-4
+				//	h5.footer-heading Sponsors
+				//	ul: each sponsor in sponsors
+				//		li: a(href='/organisations#' + sponsor.id)= sponsor.name
+	.row.footer-copyright
+		p Copyright &copy; 2015 Chronas.
+		p Nanos gigantum humeris insidentes: Chronas is based on two major forks. Please do checkout the awesome <a href="https://github.com/JedWatson/sydjs-site", target='_blank'>SydJs website</a> and <a href="https://github.com/umap-project/umap", target='_blank'>uMap project</a>.

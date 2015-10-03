@@ -1,0 +1,26 @@
+.site-footer: .container
+	.row
+		.col-sm-3.hidden-xs
+			h4.footer-heading About
+			p Every 3rd Wednesday of the month you'll find us talking about what we're doing and what's happening around us in the world of JavaScript. 
+				a(href='/about') More
+		.col-xs-4.col-sm-3
+			h4.footer-heading Members
+			ul
+				li: a(href='/members') Members
+				li: a(href='/members/moderatoring') Moderating
+				li: a(href='/members/moderators') Moderators
+				li: a(href='/join').js-auth-trigger Become a Member
+		.col-xs-4.col-sm-3
+			h4.footer-heading Resources
+			ul
+				//li: a(href='/organisations') Organisations
+				li: a(href='/credits') Credits
+				li: a(href='/blog') Blog
+		.col-xs-4.col-sm-3
+			h4.footer-heading Sponsors
+			ul: each sponsor in sponsors
+				li: a(href='/organisations#' + sponsor.id)= sponsor.name
+	.footer-copyright
+		p Copyright &copy; 2015 Chronas.
+		p Nanos gigantum humeris insidentes: Chronas is based on two major forks. Please do checkout the awesome <a href="https://github.com/JedWatson/sydjs-site", target='_blank'>SydJs website</a> and <a href="https://github.com/umap-project/umap", target='_blank'>uMap project</a>.

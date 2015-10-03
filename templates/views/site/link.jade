@@ -1,0 +1,32 @@
+extends ../../layouts/default
+
+block intro
+	.back-bar
+		.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+			.xs-right: a(href='/credits').text-muted &larr; Back to Credits
+
+
+block content
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		article.full-post
+			if !link
+				h2 Invalid Credit.
+			else
+				header
+					h1.mb-0= link.label
+					h4.blog-post__author Added
+						if link.publishedDate
+							|  on #{moment(link.publishedDate).format('MMMM D, YYYY')}
+						if link.author
+							|   &middot; by&nbsp;
+							a(href='/member/'+link.author.name.full.replace(/ /g,"-").toLowerCase())=link.author.name.full
+				.link
+					h3: a(href=link.href, target='_blank'): em!=link.href
+				.post
+					!= link.label
+
+
+
+block js
+	script(src='/js/common/share.js')
+	script(src="https://apis.google.com/js/plusone.js")
