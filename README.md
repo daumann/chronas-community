@@ -1,4 +1,4 @@
-chronas.org
+Chronas Community Site
 =========
 
 Initially built in two and a half days by the team at [Thinkmill](http://www.thinkmill.com.au) as a demo for  [KeystoneJS](http://keystonejs.com), it was then a showcase for the Sydney Javascript community - until it was forked for the community site of Chronas.
