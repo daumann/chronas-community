@@ -18,7 +18,7 @@ keystone.init({
 	'name': 'Chronas',
 	'brand': 'Chronas',
 	'back': '/me',
-
+	'host':  '127.0.0.1', 
 	'favicon': 'public/favicon.ico',
 	'less': 'public',
 	'static': 'public',
@@ -75,9 +75,9 @@ keystone.set('locals', {
 keystone.set('email locals', {
 	utils: keystone.utils,
 	host: (function() {
-		if (keystone.get('env') === 'staging') return 'http://chronas-beta.herokuapp.com';
-		if (keystone.get('env') === 'production') return 'http://www.chronas.org';
-		return (keystone.get('host') || 'http://localhost:') + (keystone.get('port') || '3000');
+/*		if (keystone.get('env') === 'staging') return 'http://chronas-beta.herokuapp.com';
+		if (keystone.get('env') === 'production') return 'http://www.chronas.org';*/
+		return /*(keystone.get('host') || 'http://localhost:')*/ '127.0.0.1:' + (keystone.get('port') || '3000');
 	})()
 });
 
