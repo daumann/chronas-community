@@ -41,8 +41,8 @@ block content
 						input#tsi(type='hidden', name='tsi', value='-1')
 						input#tsgo(type='hidden', name='action', value='tsgo')
 						#tssu(type='submit', name='action', onClick="this.parentNode.submit();", value='tsgo', style="display: none")
-						button#enterNow(style='display: none', type='button', onclick='frameload();', value='enter-history')
-							span.enterText(data-toggle='tooltip', data-placement='top', title='Please note that the realm data is not final and will be editable by the community in the final release.') ENTER
+						button#enterNow(style='display: none', type='button', onclick='frameload(); $("#clickAngle").click();', value='enter-history')
+							span.enterText(data-toggle='tooltip', data-placement='top', title='Please note that the data is not final and will be editable by the community in the final release.') ENTER
 				.loader-section.section-left
 					.levelSelection
 						.lSwrap
@@ -91,7 +91,8 @@ block content
 							.page-intro
 							.page-content#previewSection
 								.section.highlight(style="padding-top: 0px")
-									i#infoModalB(data-toggle="modal", data-target="#infoModal", style="cursor: pointer; background: url(\"/images/infoS.png\") repeat; height: 113px; background-size: 100%; width: 113px; right: 0px; top: 0px; float: right; border-bottom: 1px solid rgba(230, 230, 230, 0.99);")
+									div(data-toggle='tooltip', data-placement='left', title='(Important) Info about how to use this application', style='float: right;')
+										i#infoModalB(data-toggle="modal", data-target="#infoModal", style="cursor: pointer; background: url(\"/images/infoS.png\") repeat; height: 113px; background-size: 100%; width: 113px; right: 0px; top: 0px; float: right; border-bottom: 1px solid rgba(230, 230, 230, 0.99);")
 									
 										//i.helpTopic.fa.fa-arrow-right.fa-2x(style=" -ms-transform: rotate(-45deg);  -webkit-transform: rotate(-45deg);  transform: rotate(-45deg); ")
 									.section#prevSection: .container-sm(style="text-align: center; margin-top: 0px; width:100%")
@@ -106,7 +107,7 @@ block content
 										hr.mv-3(style="margin-top: 37px;")
 										p(style="padding-top: 20px; display: table; margin: 0 auto; ")
 											h5(style="text-align: center; font-weight: 300;") PREVIEW
-											img#prevImage(class='prevImg', alt='Image 1 Title', src='/images/mapImages-52.jpg')
+											img#prevImage(class='prevImg', alt='Image 1 Title', src='/images/mapImages52.jpg')
 								
 			#content
 
@@ -129,12 +130,13 @@ block js
 		document.getElementById("header").style.height= "50px";
 		function frameload(){
 
-			t1();
+		    $("#header").append('<div style=" text-align: center; pointer-events: none; "><i id="clickAngle" class="fa fa-angle-down" style=" margin: 0 auto; cursor: pointer; opacity: 0.6;pointer-events: all; font-size: 30px; "></i></div>')
 
+			t1();
+			$("#demo-content").css("pointer-events","none")
 			startTime = new Date().getTime();
 
 			document.getElementById("chronasWindow").style.display = "block";
-			document.getElementById("header").style.display = "none";
 			document.getElementsByClassName("site-footer")[0].style.display = 'none';
 			document.getElementsByClassName("site-body")[0].style.position = 'initial';
 			document.getElementsByClassName("site-body")[0].style.padding = 'initial';
@@ -151,12 +153,20 @@ block js
 			document.getElementById("header").style.height= "46px";
 			document.getElementById("header").style.width= "100%";
 			$('#content').css('paddingBottom', '11px');
-			$('#demo-content').mouseenter(function () {
-			if (!cooldown){
-			  $('#header').show();
-			  $('#demo-content').hide();
-			  console.debug("BOOOM");
-			}
+			$('#clickAngle').click(function () {
+				if ($('#header').css("top") !== "0px"){
+					  $('#header').css("top", "0px")
+					  $('#demo-content').hide();
+					  $('#clickAngle').removeClass('fa-angle-down')
+					  $('#clickAngle').removeClass('fa-angle-up')
+					  $('#clickAngle').addClass('fa-angle-up')
+				}
+				else {
+					$('#header').css("top","-65px")
+					$('#clickAngle').removeClass('fa-angle-up')
+					$('#clickAngle').removeClass('fa-angle-down')
+					$('#clickAngle').addClass('fa-angle-down')
+				}
 			});
 			
 			$('#header').mouseenter(function () {
@@ -165,8 +175,7 @@ block js
 			
 			$('#header').mouseleave(function () {
 			  window.ev = false;
-			  cooldown=true;
-			  $('#header').hide();
+
 			  $('#demo-content').show();
 			  setTimeout(function(){ cooldown=false; }, 100);
 			});
