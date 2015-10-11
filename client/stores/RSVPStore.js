@@ -57,7 +57,7 @@ RSVPStore.extend({
 		cancelRefresh();
 		// request the update from the API
 		request
-			.get('/api/meetup/' + Chronas.currentMeetupId)
+			.get('/api/chronas/' + Chronas.currentMeetupId)
 			.end(function(err, res) {
 				if (err) {
 					console.log('Error with the AJAX request: ', err)
@@ -75,7 +75,8 @@ RSVPStore.extend({
 	},
 
 	queueMeetupRefresh: function() {
-		refreshTimeout = setTimeout(RSVPStore.getMeetupData, REFRESH_INTERVAL);
+		RSVPStore.getMeetupData
+		//refreshTimeout = setTimeout(RSVPStore.getMeetupData, REFRESH_INTERVAL);
 	}
 
 });

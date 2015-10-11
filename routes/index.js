@@ -112,7 +112,7 @@ exports = module.exports = function(app) {
 	app.all('/api*', keystone.middleware.api);
 	app.all('/api/me/meetup', routes.api.me.meetup);
 	app.all('/api/stats', routes.api.stats);
-	app.all('/api/meetup/:id', routes.api.meetup);
+	app.all('/api/chronas/:id', routes.api.meetup);
 	app.all('/api/ts/:id', routes.api.meetup);
 	app.all('/api/addTs', routes.api.addTs);
 	

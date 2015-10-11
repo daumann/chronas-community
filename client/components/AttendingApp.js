@@ -20,10 +20,12 @@ var AttendingApp = React.createClass({
 	},
 
 	updateStateFromStore: function() {
+
 		this.setState({
 			isReady: RSVPStore.isLoaded(),
 			attendees: RSVPStore.getAttendees()
 		});
+
 	},
 	
 	renderHeading: function() {
