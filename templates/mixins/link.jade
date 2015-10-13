@@ -6,7 +6,7 @@ mixin link(link)
 					span.entypo.entypo-link.text-muted
 			.col-xs-11
 				h4(itemprop='name').mt-5
-					a(href='/credits/credit/' + link.slug, itemprop='url').text-dark
+					span(itemprop='url').text-dark
 						strong= link.label
 				if link.author
 					p.byline: small.text-muted #{link.author.name.full} &middot; added #{moment(link.publishedDate).fromNow()}
