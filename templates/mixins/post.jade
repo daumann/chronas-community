@@ -9,7 +9,7 @@ mixin post(post)
                 .img-responsive
             .post-summary
                 .post-byline
-                    .post-author: a(href='/blog/post/' + post.slug)=post.author.name.full
+                    .post-author: a(href='/blog/post/' + post.slug)=post.categories[0].name
                     //- .date-stamp: em=moment(post.publishedDate).fromNow()
 
                 h4(itemprop='name').post-title.mv-1
