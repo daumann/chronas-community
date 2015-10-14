@@ -4,7 +4,7 @@ mixin post(post)
             if post.image.exists
                 a(href='/blog/post/' + post.slug).post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
             else
-                a(href='/blog/post/' + post.slug).post-image: img(src="/images/CPmid.png", alt=post.title).img-responsive
+                a(href='/blog/post/' + post.slug).post-image: img(src="/images/email-logo.gif", alt=post.title).img-responsive
             .post-summary
                 .post-byline
                     .post-author: a(href='/blog/post/' + post.slug)=post.author.name.full
