@@ -48,7 +48,7 @@ function calculateBadges(){
         $("#mTotalLogins").find(".loadText").html(Math.round((loginCount-start)/full * 100) / 100  + "%");
         $("#mTotalLogins").find(".progress-bar").css("background-color",goldColor);
     }
-    else if (loginCount < 100){
+    else if (loginCount > 100){
         locals.badgeList.push({src: '/images/g_login.jpg', title: 'Gold Login Count: '+loginCount});
         var full=100; var start=50;
         if (loginCount >full) loginCount = full;

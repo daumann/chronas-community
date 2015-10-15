@@ -4,8 +4,7 @@ mixin post(post)
             if post.image.exists
                 a(href='/blog/post/' + post.slug).post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
             else
-                a(href='/blog/post/' + post.slug).post-image: img(src="/images/email-logo.gif", style="height: 180px;" +
-                " margin: auto;", alt=post.title)
+                a(href='/blog/post/' + post.slug).post-image: img(src="/images/email-logo.gif", style="height: 159px; width: 237px;display: block; margin: 0 auto;", alt=post.title)
                 .img-responsive
             .post-summary
                 .post-byline
