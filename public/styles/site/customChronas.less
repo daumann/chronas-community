@@ -690,6 +690,9 @@
 .navbar{
 
   border-bottom: 16px;
+  -moz-border-image:url("/images/whiteBorder.png") 40 0 70 repeat; /* Old Firefox */
+  -webkit-border-image:url("/images/whiteBorder.png") 40 0 70 repeat; /* Safari */
+  -o-border-image:url("/images/whiteBorder.png") 40 0 70 repeat; /* Opera */
   border-image: url("/images/whiteBorder.png") 40 0 70 repeat;
   background-color: rgb(51, 51, 51);
   border-top: 0px;
@@ -742,7 +745,12 @@
 
 .prevHistImg{
   border: 16px;
+
+  -moz-border-image:url("/images/border.png") 70 repeat; /* Old Firefox */
+  -webkit-border-image:url("/images/border.png") 70 repeat; /* Safari */
+  -o-border-image:url("/images/border.png") 70 repeat; /* Opera */
   border-image: url("/images/border.png") 70 repeat;
+
   width: 100%;
   height: auto;
   opacity: 0;
