@@ -99,7 +99,7 @@ block content
 										.form-row(style="display: table; margin: 0 auto; padding-left: 15%;")
 											.col-xs-6(style="width: initial !important;")
 												label.control-label#titleYear(style="margin-bottom: -13px;") Starting Year:
-												input(type='number', name='year' value=400, style='border: 0px; box-shadow: none; font-size: 22px;').form-control#selectedYear
+												input(type='number', min="0", max="2000", name='year' value=400, style='border: 0px; box-shadow: none; font-size: 22px;').form-control#selectedYear
 
 											//.col-xs-6(style="padding-left: 20px; width: initial !important")
 											//	label.control-label#titleLocation Location:
