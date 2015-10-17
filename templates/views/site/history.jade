@@ -273,6 +273,21 @@ block js
 						$("#yearDesc").html(currDesc);
 					});
 
+
+					$( "#selectedYear" ).change(function() {
+						setTimeout(function(){
+							document.getElementById('loadergif').style.display='block';
+							document.getElementById('enterNow').style.display='none';
+							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/?year=' + $("#selectedYear").val());
+							$("#prevSection").removeClass("previewSectionActive")
+						},300);
+
+
+
+
+
+					});
+
 					$(".singImg").click(function() {
 						$("#prevSection").addClass("previewSectionActive")
 						document.getElementById('loadergif').style.display='block';
@@ -296,7 +311,7 @@ block js
 						setTimeout(function(){
 							document.getElementById('loadergif').style.display='block';
 							document.getElementById('enterNow').style.display='none';
-							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/35.35/32.17?year=52');
+							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/'+tmpLoc+'?year=' + $("#selectedYear").val());
 							$("#prevSection").removeClass("previewSectionActive")
 						},300);
 
