@@ -110,6 +110,7 @@ exports = module.exports = function(req, res) {
     view.on('post', { action: 'upvote-thread' }, function() {
 
         //logger.info("    upper   ")
+        if(req.user !== undefined){
 
         var itemQuery = Thread.model.findById(req.body.tid).select();
         var userQuery = User.model.findById(req.user._id).select();
@@ -157,9 +158,15 @@ exports = module.exports = function(req, res) {
                 }
             });
         });
+
+        } else {
+            return res.redirect('/talk/thread/' + locals.thread.slug);
+        }
     });
 
     view.on('post', { action: 'downvote-thread'}, function() {
+
+        if (req.user !== undefined){
 
         var itemQuery = Thread.model.findById(req.body.tid).select();
         var userQuery = User.model.findById(req.user._id).select();
@@ -207,12 +214,18 @@ exports = module.exports = function(req, res) {
                 }
             });
         });
+
+        } else {
+            return res.redirect('/talk/thread/' + locals.thread.slug);
+        }
     });
 
     view.on('post', { action: 'upvote-comment' }, function() {
        // logger.info("       ******    in that: ", locals,"\n\t\n\n",req.params)
        // locals.thread.comments[0].rating
         //logger.info("    upper   ")
+
+        if (req.user !== undefined){
 
         var itemQuery = ThreadComment.model.findById(req.body.cid).select();
         var userQuery = User.model.findById(req.user._id).select();
@@ -260,13 +273,19 @@ exports = module.exports = function(req, res) {
                 }
             });
         });
+
+        } else {
+            return res.redirect('/talk/thread/' + locals.thread.slug);
+        }
         
     });
 
     view.on('post', { action: 'downvote-comment'}, function() {
 
         //logger.info("    lower   ")
-       
+
+        if (req.user !== undefined){
+
         var itemQuery = ThreadComment.model.findById(req.body.cid).select();
         var userQuery = User.model.findById(req.user._id).select();
         
@@ -314,6 +333,9 @@ exports = module.exports = function(req, res) {
                 }
             });
         });
+        } else {
+            return res.redirect('/talk/thread/' + locals.thread.slug);
+        }
     });
 
 	// Render the view

@@ -87,95 +87,104 @@ exports = module.exports = function(req, res) {
 
     view.on('post', { action: 'upvote-thread' }, function() {
 
+        if(req.user !== undefined){
+            var itemQuery = Thread.model.findById(req.body.tid).select();
+            var userQuery = User.model.findById(req.user._id).select();
 
-        var itemQuery = Thread.model.findById(req.body.tid).select();
-        var userQuery = User.model.findById(req.user._id).select();
+            itemQuery.exec(function(err, item) {
+                userQuery.exec(function(err, myUser) {
 
-        itemQuery.exec(function(err, item) {
-            userQuery.exec(function(err, myUser) {
-
-                if (!myUser) {
-                    return res.redirect('/talk');
-                } else {
-                    if (!item) {
+                    if (!myUser) {
                         return res.redirect('/talk');
                     } else {
-                        req.body.rating = item.rating+1;
-                        req.body.ratingsCount = myUser.ratingsCount+1;
+                        if (!item) {
+                            return res.redirect('/talk');
+                        } else {
+                            req.body.rating = item.rating+1;
+                            req.body.ratingsCount = myUser.ratingsCount+1;
 
-                        if (myUser.idParticipated.indexOf(item._id + "UP") !== -1){
-                            // UP is already pressed! Do nothing
+                            if (myUser.idParticipated.indexOf(item._id + "UP") !== -1){
+                                // UP is already pressed! Do nothing
 
-                        }
-                        else {
-                            // UP is not yet pressed, proceed.
+                            }
+                            else {
+                                // UP is not yet pressed, proceed.
 
-                            req.body.idParticipated = myUser.idParticipated+item._id + "UP";
-
-                            if (myUser.idParticipated.indexOf(item._id + "DOWN") == -1){
                                 req.body.idParticipated = myUser.idParticipated+item._id + "UP";
-                            }
-                            else{
-                                myUser.idParticipated = myUser.idParticipated.replace(item._id + "DOWN","")
-                            }
-                            
 
-                            item.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'rating' }, function(err) {
-                                myUser.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'ratingsCount,idParticipated' }, function(err) {
-                                    return res.redirect('/talk');
+                                if (myUser.idParticipated.indexOf(item._id + "DOWN") == -1){
+                                    req.body.idParticipated = myUser.idParticipated+item._id + "UP";
+                                }
+                                else{
+                                    myUser.idParticipated = myUser.idParticipated.replace(item._id + "DOWN","")
+                                }
+
+
+                                item.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'rating' }, function(err) {
+                                    myUser.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'ratingsCount,idParticipated' }, function(err) {
+                                        return res.redirect('/talk');
+                                    });
                                 });
-                            });
+                            }
                         }
                     }
-                }
+                });
             });
-        });
+        }
+        else {
+            return res.redirect('/talk');
+        }
+
 
     });
 
     view.on('post', { action: 'downvote-thread'}, function() {
 
-        var itemQuery = Thread.model.findById(req.body.tid).select();
-        var userQuery = User.model.findById(req.user._id).select();
+        if(req.user !== undefined){
+            var itemQuery = Thread.model.findById(req.body.tid).select();
+            var userQuery = User.model.findById(req.user._id).select();
 
-        itemQuery.exec(function(err, item) {
-            userQuery.exec(function(err, myUser) {
+            itemQuery.exec(function(err, item) {
+                userQuery.exec(function(err, myUser) {
 
-                if (!myUser) {
-                    return res.redirect('/talk');
-                } else {
-                    if (!item) {
+                    if (!myUser) {
                         return res.redirect('/talk');
                     } else {
-                        req.body.rating = item.rating-1;
-                        req.body.ratingsCount = myUser.ratingsCount+1;
+                        if (!item) {
+                            return res.redirect('/talk');
+                        } else {
+                            req.body.rating = item.rating-1;
+                            req.body.ratingsCount = myUser.ratingsCount+1;
 
-                        if (myUser.idParticipated.indexOf(item._id + "DOWN") !== -1){
-                            // DOWN is already pressed! Do nothing
+                            if (myUser.idParticipated.indexOf(item._id + "DOWN") !== -1){
+                                // DOWN is already pressed! Do nothing
 
-                        }
-                        else {
-                            // DOWN is not yet pressed, proceed.
-                            
-                            if (myUser.idParticipated.indexOf(item._id + "UP") == -1){
-                                req.body.idParticipated = myUser.idParticipated+item._id + "DOWN";
                             }
-                            else{
-                                myUser.idParticipated = myUser.idParticipated.replace(item._id + "UP","")
-                            }
-                            
-                            item.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'rating' }, function(err) {
-                                myUser.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'ratingsCount,idParticipated' }, function(err) {
-                                    return res.redirect('/talk');
+                            else {
+                                // DOWN is not yet pressed, proceed.
+
+                                if (myUser.idParticipated.indexOf(item._id + "UP") == -1){
+                                    req.body.idParticipated = myUser.idParticipated+item._id + "DOWN";
+                                }
+                                else{
+                                    myUser.idParticipated = myUser.idParticipated.replace(item._id + "UP","")
+                                }
+
+                                item.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'rating' }, function(err) {
+                                    myUser.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'ratingsCount,idParticipated' }, function(err) {
+                                        return res.redirect('/talk');
+                                    });
                                 });
-                            });
+                            }
                         }
                     }
-                }
+                });
             });
-        });
+        }
+        else {
+            return res.redirect('/talk');
+        }
     });
-
 
     // Render the view
 	view.render('site/talk');

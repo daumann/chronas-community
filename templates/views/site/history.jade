@@ -23,10 +23,10 @@ block content
 						allowfullscreen="")
 				.modal-footer(style="background: #f7f7f7;")
 					button.btn.btn-primary(data-dismiss="modal", aria-hidden="true") Close
-					
+
 	div(style=' min-height: 100%;     height:100%;     width:100%;    position:absolute;    overflow:hidden;')
-		iframe#chronasWindow(onload="if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {document.getElementById('loadergif').style.display='none'; console.error('bling'+document.getElementById(\'chronasWindow\').src); document.getElementById('enterNow').style.display='block';}", src='/en/app/map/vas_6#4/35.35/32.17?year=52', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
-		#demo-content
+		iframe#chronasWindow(onload="if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {document.getElementById('loadergif').style.display='none'; document.getElementById('enterNow').style.display='block';}", src='/en/app/map/vas_6#4/35.35/32.17?year=52', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
+		#demo-content  http://localhost:8000/en/map/vas_6#6/4.007/49.999
 			#loader-wrapper
 				#loader
 					div(style='\
@@ -42,73 +42,82 @@ block content
 						input#tsgo(type='hidden', name='action', value='tsgo')
 						#tssu(type='submit', name='action', onClick="this.parentNode.submit();", value='tsgo', style="display: none")
 						button#enterNow(style='display: none', type='button', onclick='frameload(); $("#clickAngle").click();', value='enter-history')
-							span.enterText(data-toggle='tooltip', data-placement='top', title='Please note that the data is not final and will be editable by the community in the final release.') ENTER
+							span.enterText(data-toggle='tooltip', data-placement='top', title='') ENTER
 				.loader-section.section-left
-					.levelSelection
+					.levelSelection(style="text-align: left;overflow: auto;direction: rtl;")
 						.lSwrap
-							.page-intro(style="padding-left: 15px; padding-bottom: initial; text-align: initial; width: initial;")
+							.page-intro(style="padding-left: 15px; padding-bottom: initial; text-align: left; width: initial;")
 								h5 How did the world look like when...
 							.page-content
 								.section.highlight
 									.container
 										.col-sm-2
-											//i.fa.fa-arrow-down.fa-2x.selectTopic.animated.bounce										
+											//i.fa.fa-arrow-down.fa-2x.selectTopic.animated.bounce
 											#yearImgs
-												p 
-													img.activeImg(class='singImg', alt='Image 1 Title', src='/articleImages/selected/1-52BC.jpg', value='52 BC: Caesar conquered Gaul|"If you must break the law, do it to seize power: in all other cases observe it."|The Battle of Alesia (September, 52 BC), was a decisive battle in the creation of the Roman Empire. According to Plutarch, Vercingetorix surrendered in dramatic fashion, riding his beautifully adorned horse out of Alesia and around Caesar\'s camp before dismounting in front of Caesar, stripping himself of his armor and sitting down at his opponent\'s feet, where he remained motionless until he was taken away.', data-value='52|Rome|41.743/12.722')
 												p
-													img(class='singImg', alt='Image 2 Title', src='/articleImages/selected/30-Jesus.jpg', value='30: Jesus of Nazareth was cruzified|"Love your enemies and pray for those who persecute you."|Most scholars agree that Jesus was a Galilean Jew and that his crucifixion was between 30 and 33 CE by the order of the Roman Prefect Pontius Pilate. Jesus preached in Roman occupied Judea and Galilee in the tradition of the old testament and through his pacifistic teachings started what would become the world\'s largest religion.', data-value='30|Jerusalem|41.743/12.722')
+													img.activeImg(class='singImg',  src='/articleImages/selected/1-52BC.jpg', value='52 BC: Caesar conquered Gaul|"If you must break the law, do it to seize power: in all other cases observe it."|The Battle of Alesia (September, 52 BC), was a decisive battle in the creation of the Roman Empire. According to Plutarch, Vercingetorix surrendered in dramatic fashion, riding his beautifully adorned horse out of Alesia and around Caesar\'s camp before dismounting in front of Caesar, stripping himself of his armor and sitting down at his opponent\'s feet, where he remained motionless until he was taken away.', data-value='0|Rome|41.743/12.722')
 												p
-													img(class='singImg', alt='Image 1 Title', src='/articleImages/selected/632-mhmd.jpg', value='632: Mohammed unified Arabia|"The strong man is not the good wrestler; the strong man is only the one who controls himself when he is angry."|Mohammed and a few early followers migrated to Medina from Mecca in the year 622 marking the beginning of the Islamic calendar. In Medina, Muhammad united the tribes and after eight years gathered an army of 10,000 Muslim converts and conquered the city of Mecca. His efforts would unify Arabia into a single religious polity under Islam.', data-value='632|Mecca|26.032/37.925')
+													img(class='singImg',  src='/articleImages/selected/30-Jesus.jpg', value='30: Jesus of Nazareth was cruzified|"Love your enemies and pray for those who persecute you."|Most scholars agree that Jesus was a Galilean Jew and that his crucifixion was between 30 and 33 CE by the order of the Roman Prefect Pontius Pilate. Jesus preached in Roman occupied Judea and Galilee in the tradition of the old testament and through his pacifistic teachings started what would become the world\'s largest religion.', data-value='30|Jerusalem|41.743/12.722')
 												p
-													img(class='singImg', alt='Image 2 Title', src='/articleImages/selected/774_Charlemagne.jpg', value='774: Charlemagne united West-Europe|"Right action is better than knowledge; but in order to do what is right, we must know what is right."|Called the "Father of Europe", Charlemagne united most of Western Europe for the first time since the Western Roman Empire three centuries earlier. His great scholarly failure, as Einhard relates, was his inability to write: when in his old age he began attempts to learn—practicing the formation of letters in his bed during his free time on books and wax tablets he hid under his pillow. ', data-value='774|Aachen|50.321/6.888')
+													img(class='singImg',  src='/articleImages/selected/632-mhmd.jpg', value='632: Mohammed unified Arabia|"The strong man is not the good wrestler; the strong man is only the one who controls himself when he is angry."|Mohammed and a few early followers migrated to Medina from Mecca in the year 622 marking the beginning of the Islamic calendar. In Medina, Muhammad united the tribes and after eight years gathered an army of 10,000 Muslim converts and conquered the city of Mecca. His efforts would unify Arabia into a single religious polity under Islam.', data-value='632|Mecca|26.032/37.925')
 												p
-													img(class='singImg', alt='Image 1 Title', src='/articleImages/selected/999-Vikings.jpg', value='999: Vikings arrived in North-America|"Never walk away from home ahead of your axe and sword. You can\'t feel a battle in your bones or foresee a fight."|Scandinavian Norsemen explored Europe by its seas and rivers for trade, raids and conquest. In this period, the Norsemen also settled in Norse Greenland and Newfoundland. Though Viking travellers and colonists were seen at many points in history as brutal raiders, many historical documents suggest that their invasion of other countries was retaliation in response to the encroachment upon tribal lands by Christian missionaries, and perhaps by the Saxon Wars prosecuted by Charlemagne and his kin to the south.', data-value='999|Scandinavia|59.105/10.931')
+													img(class='singImg',  src='/articleImages/selected/774_Charlemagne.jpg', value='774: Charlemagne united West-Europe|"Right action is better than knowledge; but in order to do what is right, we must know what is right."|Called the "Father of Europe", Charlemagne united most of Western Europe for the first time since the Western Roman Empire three centuries earlier. His great scholarly failure, as Einhard relates, was his inability to write: when in his old age he began attempts to learn—practicing the formation of letters in his bed during his free time on books and wax tablets he hid under his pillow. ', data-value='774|Aachen|50.321/6.888')
 												p
-													img(class='singImg', alt='Image 2 Title', src='/articleImages/selected/1223-Mongols.jpg', value='1248: Mongols invaded East-Europe|"Conquering the world on horseback is easy; it is dismounting and governing that is hard."|Genghis Khan was the founder and Great Khan of the Mongol Empire, which became the largest contiguous empire in history after his demise. He came to power by uniting many of the nomadic tribes of Northeast Asia. Known for the brutality of his campaigns, Genghis Khan is also credited with bringing the Silk Road under one cohesive political environment. This increased communication and trade from Northeast Asia to Muslim Southwest Asia and Christian Europe, thus expanding the horizons of all three cultural areas.', data-value='1248|Poland|36.42/84.99')
+													img(class='singImg',  src='/articleImages/selected/999-Vikings.jpg', value='999: Vikings arrived in North-America|"Never walk away from home ahead of your axe and sword. You can\'t feel a battle in your bones or foresee a fight."|Scandinavian Norsemen explored Europe by its seas and rivers for trade, raids and conquest. In this period, the Norsemen also settled in Norse Greenland and Newfoundland. Though Viking travellers and colonists were seen at many points in history as brutal raiders, many historical documents suggest that their invasion of other countries was retaliation in response to the encroachment upon tribal lands by Christian missionaries, and perhaps by the Saxon Wars prosecuted by Charlemagne and his kin to the south.', data-value='999|Scandinavia|59.105/10.931')
 												p
-													img(class='singImg', alt='Image 1 Title', src='/articleImages/selected/1271-YuanByKublai.jpg', value='1271: Kublai Khan founded Yuan Dynasty|"Why do you speak to me of the stones? It is only the arch that matters to me."|Kublai established the Yuan dynasty, which ruled over present-day Mongolia, China, Korea, and some adjacent areas, and assumed the role of Emperor of China. By 1279, the Yuan forces had overcome the last resistance of the Southern Song dynasty, and Kublai became the first non-Han Emperor to conquer all of China.', data-value='1271|Beijing|40.263/113.159')
+													img(class='singImg',  src='/articleImages/selected/1223-Mongols.jpg', value='1248: Mongols invaded East-Europe|"Conquering the world on horseback is easy; it is dismounting and governing that is hard."|Genghis Khan was the founder and Great Khan of the Mongol Empire, which became the largest contiguous empire in history after his demise. He came to power by uniting many of the nomadic tribes of Northeast Asia. Known for the brutality of his campaigns, Genghis Khan is also credited with bringing the Silk Road under one cohesive political environment. This increased communication and trade from Northeast Asia to Muslim Southwest Asia and Christian Europe, thus expanding the horizons of all three cultural areas.', data-value='1248|Poland|36.42/84.99')
 												p
-													img(class='singImg', alt='Image 2 Title', src='/articleImages/selected/1402-Timur.jpg', value='1402: Timur ruled the Muslim world|"As there is but one god in heaven, so should there be but one ruler on earth."|Timur is considered the last of the great nomadic conquerors of the Eurasian Steppe, he emerged as the most powerful ruler in the Muslim world after defeating the Mamluks of Egypt and Syria, the emerging Ottoman Empire and the declining Delhi Sultanate. As a means of legitimating his conquests, Timur relied on Islamic symbols and language, referring to himself as the "Sword of Islam" and patronizing educational and religious institutions. He converted nearly all the Borjigin leaders to Islam during his lifetime.', data-value='1402|Baghdad|39.682/59.832')
+													img(class='singImg',  src='/articleImages/selected/1271-YuanByKublai.jpg', value='1271: Kublai Khan founded Yuan Dynasty|"Why do you speak to me of the stones? It is only the arch that matters to me."|Kublai established the Yuan dynasty, which ruled over present-day Mongolia, China, Korea, and some adjacent areas, and assumed the role of Emperor of China. By 1279, the Yuan forces had overcome the last resistance of the Southern Song dynasty, and Kublai became the first non-Han Emperor to conquer all of China.', data-value='1271|Beijing|40.263/113.159')
 												p
-													img(class='singImg', alt='Image 2 Title', src='/articleImages/selected/1532-Pizarro-peru.jpg', value='1532: Pizarro conquered the Inca Empire|"The conquest of Peru began with a checkmate."|The last Sapa Inca Atahualpa decided that the 168 Spaniards were not a threat to him and his 80,000 troops, so he sent word inviting to meet Pizarro, expecting to capture them. Pizarro and his men thus advanced unopposed through some very difficult terrain. By means of an ambush, Pizarro captured Atahualpa and used him to control and conquer the Inca Empire, the largest empire in pre-Columbian America.', data-value='1532|Peru|-17.151/-70.928')
+													img(class='singImg',  src='/articleImages/selected/1402-Timur.jpg', value='1402: Timur ruled the Muslim world|"As there is but one god in heaven, so should there be but one ruler on earth."|Timur is considered the last of the great nomadic conquerors of the Eurasian Steppe, he emerged as the most powerful ruler in the Muslim world after defeating the Mamluks of Egypt and Syria, the emerging Ottoman Empire and the declining Delhi Sultanate. As a means of legitimating his conquests, Timur relied on Islamic symbols and language, referring to himself as the "Sword of Islam" and patronizing educational and religious institutions. He converted nearly all the Borjigin leaders to Islam during his lifetime.', data-value='1402|Baghdad|39.682/59.832')
 												p
-													img(class='singImg', alt='Image 1 Title', src='/articleImages/selected/1776-Washington in Delaware.jpg', value='1776: Washington crossed the Delaware|"To be prepared for war is one of the most effectual means of preserving peace."| In December 1776 during the American Revolutionary War George Washington crossed the icy Delaware in a surprise attack which would inflict a crucial defeat to the opposing Hessian forces. He became the first President of the United States and was called the "father of his country". His retirement from office after two terms established a tradition which was unbroken until 1940.', data-value='1776|Delaware|37.536/-79.167')
+													img(class='singImg',  src='/articleImages/selected/1532-Pizarro-peru.jpg', value='1532: Pizarro conquered the Inca Empire|"The conquest of Peru began with a checkmate."|The last Sapa Inca Atahualpa decided that the 168 Spaniards were not a threat to him and his 80,000 troops, so he sent word inviting to meet Pizarro, expecting to capture them. Pizarro and his men thus advanced unopposed through some very difficult terrain. By means of an ambush, Pizarro captured Atahualpa and used him to control and conquer the Inca Empire, the largest empire in pre-Columbian America.', data-value='1532|Peru|-17.151/-70.928')
 												p
-													img(class='singImg', alt='Image 1 Title', src='/articleImages/selected/1812-Napoleons.jpg', value='1812: Napoleon returned from Moscow|"The most terrible of all my battles was the one before Moscow. The French showed themselves to be worthy of victory, but the Russians showed themselves worthy of being invincible."|Napoléon Bonaparte gained rose to prominence during the French Revolution and gained control of most continental Europe as a military leader. His campaigns are studied at military schools worldwide and he remains one of the most celebrated and controversial political figures in Western history. His defeat and retreat through the Russian winter marked the turning point and demise of the First French Empire.', data-value='1812|Moscow|48.115/5.603')
+													img(class='singImg',  src='/articleImages/selected/1776-Washington in Delaware.jpg', value='1776: Washington crossed the Delaware|"To be prepared for war is one of the most effectual means of preserving peace."| In December 1776 during the American Revolutionary War George Washington crossed the icy Delaware in a surprise attack which would inflict a crucial defeat to the opposing Hessian forces. He became the first President of the United States and was called the "father of his country". His retirement from office after two terms established a tradition which was unbroken until 1940.', data-value='1776|Delaware|37.536/-79.167')
+												p
+													img(class='singImg',  src='/articleImages/selected/1812-Napoleons.jpg', value='1812: Napoleon returned from Moscow|"The most terrible of all my battles was the one before Moscow. The French showed themselves to be worthy of victory, but the Russians showed themselves worthy of being invincible."|Napoléon Bonaparte gained rose to prominence during the French Revolution and gained control of most continental Europe as a military leader. His campaigns are studied at military schools worldwide and he remains one of the most celebrated and controversial political figures in Western history. His defeat and retreat through the Russian winter marked the turning point and demise of the First French Empire.', data-value='1812|Moscow|48.115/5.603')
 										.col-sm-10
 											h2#yearTitle 52 BC: Caesar conquered Gaul
 											blockquote#yearQuote "If you must break the law, do it to seize power: in all other cases observe it."
 											p#yearDesc In the Battle of Alesia (September, 52 BC), Caesar built a fortification around the city to besiege it. However, Caesar's army was surrounded by the rest of Gaul, and Vercingetorix had summoned his Gallic allies to attack the besieging Romans, so Caesar built another outer fortification against the expected relief armies (resulting in a doughnut-shaped fortification).
 											p
-												img(class='prevHistImg', alt='Image 1 Title', src='/articleImages/selected/1-52BC.jpg')
+												img(class='prevHistImg',  src='/articleImages/selected/1-52BC.jpg')
 								.section: .container-sm
-									
+
 
 				.loader-section.section-right
-					.helpSelection                        
+					.helpSelection
 						.lSwrap
 							.page-intro
 							.page-content#previewSection
 								.section.highlight(style="padding-top: 0px")
 									div(data-toggle='tooltip', data-placement='left', title='(Important) Info about how to use this application', style='float: right;')
-										i#infoModalB(data-toggle="modal", data-target="#infoModal", style="cursor: pointer; background: url(\"/images/infoS.png\") repeat; height: 113px; background-size: 100%; width: 113px; right: 0px; top: 0px; float: right; border-bottom: 1px solid rgba(230, 230, 230, 0.99);")
-									
+										i#infoModalB(data-toggle="modal", data-target="#infoModal", style="cursor: pointer; background: url(\"/images/infoS.png\") repeat; height: 113px; background-size: 100%; width: 113px; right: 0px; top: 0px; float: right;")
+
 										//i.helpTopic.fa.fa-arrow-right.fa-2x(style=" -ms-transform: rotate(-45deg);  -webkit-transform: rotate(-45deg);  transform: rotate(-45deg); ")
 									.section#prevSection: .container-sm(style="text-align: center; margin-top: 0px; width:100%")
 										.form-row(style="display: table; margin: 0 auto; padding-left: 15%;")
 											.col-xs-6(style="width: initial !important;")
 												label.control-label#titleYear(style="margin-bottom: -13px;") Starting Year:
 												input(type='number', name='year' value=400, style='border: 0px; box-shadow: none; font-size: 22px;').form-control#selectedYear
-											
+
 											//.col-xs-6(style="padding-left: 20px; width: initial !important")
 											//	label.control-label#titleLocation Location:
 											//	input(type='text', name='location' value='Rome').form-control#selectedLocation
-										hr.mv-3(style="margin-top: 37px;")
+										hr.mv-3(style="margin-top: 20px; margin-bottom: 20px;")
 										p(style="padding-top: 20px; display: table; margin: 0 auto; ")
 											h5(style="text-align: center; font-weight: 300;") PREVIEW
-											img#prevImage(class='prevImg', alt='Image 1 Title', src='/images/mapImages52.jpg')
-								
+											img#prevImage(class='prevImg', src='/images/mapImages0.jpg')
+											hr.mv-3(style="")
+											p
+												h5(style="text-align: center; font-weight: 300;") README
+												ul(style="text-align: left;")
+													li If you are here the first time, make sure to watch the <span onclick="$('#infoModalB').click();" style="cursor: pointer; text-decoration: underline;">3 minute tutorial video</span>
+													li Note that the data used in this app is yet inconsistent and will be editable by the community in the final release
+													li This is a computation heavy application and for some systems longer loading times are expected
+													li#browserHint(style="color: red; display: none;")
+													li#resolutionHint(style="color: red; display: none;")
+
 			#content
 
 
@@ -118,9 +127,8 @@ block js
 	script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
 	script(src='/package/unitegallery/js/unitegallery.js')
 	script(src='/package/unitegallery/themes/grid/ug-theme-grid.js')
-		
+
 	script.
-		document.domain = 'chronas.org';
 		var startTime = -1;
 		var endTime = -1;
 		window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\\/script>')
@@ -147,7 +155,7 @@ block js
 			document.getElementById("demo-content").style.position="absolute";
 			document.getElementById("demo-content").style.width="100%";
 			document.getElementById("demo-content").style.height="1%";
-			
+
 			document.getElementById("header").style.position = "absolute";
 			document.getElementById("header").style.top = "0px";
 			document.getElementById("header").style.borderBottom = "0px solid #f7f7f7";
@@ -169,18 +177,18 @@ block js
 					$('#clickAngle').addClass('fa-angle-down')
 				}
 			});
-			
+
 			$('#header').mouseenter(function () {
 			  window.ev = true;
 			});
-			
+
 			$('#header').mouseleave(function () {
 			  window.ev = false;
 
 			  $('#demo-content').show();
 			  setTimeout(function(){ cooldown=false; }, 100);
 			});
-			
+
 			$('body').addClass('loaded');
 			$('h1').css('color','#222222');
 		}
@@ -196,6 +204,47 @@ block js
 
 		jQuery(document).ready(function(){
 
+			var detectedBrowser = "";
+			if(!!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0){
+				detectedBrowser = "Opera";
+				$("#browserHint").html("Be advised that <b>" + detectedBrowser + "</b> is currently <b>NOT</b> a " +
+						"supported browser.<span style='color: initial'> This application is optimized for Google Chrome.</span>");
+			}
+			if(typeof InstallTrigger !== 'undefined') {
+				$("#browserHint").css("color","rgb(165, 102, 0)");
+				$("#browserHint").html("<span style='color: initial'> This application is optimized for Google Chrome.</span> However, your <b>" + detectedBrowser + "</b> browser should also be able to run this application.");
+
+			}
+			if(Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0) {
+				detectedBrowser = "Safari";
+				$("#browserHint").css("color","rgb(165, 102, 0)");
+				$("#browserHint").html("<span style='color: initial'> This application is optimized for Google Chrome.</span> However, your <b>" + detectedBrowser + "</b> browser should also be able to run this application.");
+
+			}
+			if(!!window.chrome && !(!!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0)) {
+				detectedBrowser = "Chrome";
+				//$("#browserHint").css("color","rgb(165, 102, 0)");
+				//$("#browserHint").html("<span style='color: initial'> This application is optimized for Google Chrome.</span> However, your <b>" + detectedBrowser + "</b> browser should also be able to run this application.");
+
+			}
+			if(false || !!document.documentMode) {
+				detectedBrowser = "Internet Explorer";
+				$("#browserHint").html("Be advised that <b>" + detectedBrowser + "</b> is currently <b>NOT</b> a " +
+						"supported browser.<span style='color: initial'> This application is optimized for Google Chrome.</span>");
+
+			}
+
+			if ($("#browserHint").html() !== "") $("#browserHint").css("display", "")
+
+			var screenWidth = $(window).width() // 1085
+			var screenHeight = $(window).height() // 785
+
+			if (screenWidth < 1085 || screenHeight < 785){
+				$("#resolutionHint").css("display", "");
+				$("#resolutionHint").html("Your current resolution of <b>"+screenWidth+" x "+screenHeight+"</b> is below the recommended minimum of <b>1085 x 785</b>");
+			}
+
+
 			$('[data-toggle="tooltip"]').tooltip();
 
 			$( "body" ).prepend( $("#infoModal") );
@@ -205,60 +254,60 @@ block js
 						thumb_image_overlay_effect:true,
 						thumb_image_overlay_type: "sepia"
 					});
-		
-					$(".singImg").mouseenter(function() {  
+
+					$(".singImg").mouseenter(function() {
 						$(".prevHistImg").removeClass("prevHistImgActive");
-						$(".prevHistImg").attr("src",this.src); 
+						$(".prevHistImg").attr("src",this.src);
 						$(".prevHistImg").addClass("prevHistImgActive");
 						$("#yearTitle").html($(this).attr("value").split("|")[0]);
 						$("#yearQuote").html($(this).attr("value").split("|")[1]);
 						$("#yearDesc").html($(this).attr("value").split("|")[2]);
 					});
-		
-					$(".singImg").mouseleave(function() {   
-						$(".prevHistImg").removeClass("prevHistImgActive"); 
+
+					$(".singImg").mouseleave(function() {
+						$(".prevHistImg").removeClass("prevHistImgActive");
 						$(".prevHistImg").attr("src",currSrc);
 						$(".prevHistImg").addClass("prevHistImgActive");
 						$("#yearTitle").html(currentTitle);
 						$("#yearQuote").html(currQuote);
 						$("#yearDesc").html(currDesc);
 					});
-		
+
 					$(".singImg").click(function() {
 						$("#prevSection").addClass("previewSectionActive")
 						document.getElementById('loadergif').style.display='block';
 						document.getElementById('enterNow').style.display='none';
-						
+
 						currentTitle = $("#yearTitle").html();
 						currSrc = this.src;
 						currQuote = $("#yearQuote").html();
 						currDesc = $("#yearDesc").html();
 						$(".singImg").removeClass("activeImg");
 						$(this).addClass("activeImg");
-						
+
 						$("#selectedYear").val($(this).attr("data-value").split("|")[0])
 						$("#selectedLocation").val($(this).attr("data-value").split("|")[1])
 						var tmpLoc = $(this).attr("data-value").split("|")[2];
 						$("#prevImage").attr('src','/images/mapImages'+$(this).attr("data-value").split("|")[0]+'.jpg');
 						$("#chronasWindow").attr('src', '')
 
-						
-						
+
+
 						setTimeout(function(){
 							document.getElementById('loadergif').style.display='block';
 							document.getElementById('enterNow').style.display='none';
-							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/'+tmpLoc+'?year=' + $("#selectedYear").val());
+							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/35.35/32.17?year=52');
 							$("#prevSection").removeClass("previewSectionActive")
 						},300);
-						
-						
-						
+
+
+
 					});
-		
+
 					$($(".singImg")[0]).mouseenter();
 					$($(".singImg")[0]).click();
-		
-					
-					
+
+
+
 		});
 
