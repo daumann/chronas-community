@@ -275,10 +275,12 @@ block js
 
 
 					$( "#selectedYear" ).change(function() {
+						$("#chronasWindow").attr('src', '')
+
 						setTimeout(function(){
 							document.getElementById('loadergif').style.display='block';
 							document.getElementById('enterNow').style.display='none';
-							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/?year=' + $("#selectedYear").val());
+							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/35.35/32.17?year=' + $("#selectedYear").val());
 							$("#prevSection").removeClass("previewSectionActive")
 						},300);
 
