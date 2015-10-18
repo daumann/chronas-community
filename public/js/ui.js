@@ -1,5 +1,5 @@
 $(function() {
-
+/*
 	$('.dismiss-alert').click(function () {
 		$('#app-alert').hide();
 		$.cookie('dismissAppBanner', true);
@@ -8,7 +8,7 @@ $(function() {
 	if (!$.cookie('dismissAppBanner')) {
 		$('#app-alert').removeClass('hidden-md hidden-lg');
 	}
-
+*/
 
 
 	// Nav
@@ -25,7 +25,7 @@ $(function() {
 			document.ontouchmove = function(e){ return true; }
 		};
 	});
-	
+
 	
 	
 	

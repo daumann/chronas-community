@@ -96,6 +96,8 @@ block content
 //- JS
 block js
 	script.
+		var Chronas = {};
+		Chronas.meetup = !{JSON.stringify(meetup)};
 		Chronas.currentMeetupId = !{JSON.stringify(meetup.id)};
 	if user
 		script.
