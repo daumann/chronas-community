@@ -11,7 +11,7 @@ block intro
 
 block content
 	#infoModal.modal.fade(role="dialog", style="overflow: hidden;")
-		.modal-dialog#modalBody
+		.modal-dialog#modalBody(style="width: 50%;")
 			// Modal content
 			.modal-content(style="padding: 0px;")
 				.modal-header(style="padding: 9px 15px; border-bottom: 1px solid #eee; background: #f7f7f7; ")
@@ -247,12 +247,11 @@ block js
 			var screenHeight = $(window).height() // 785
 
 			$("#tutFrame").css("height",parseInt(screenHeight/1.4))
-			if (parseInt( parseInt(screenHeight/1.4) * 1.5 ) < screenWidth){
+
+			if (parseInt( parseInt(screenHeight/1.4) * 1.5 ) + 30 < screenWidth){
 				$("#tutFrame").css("width", parseInt( parseInt(screenHeight/1.4) * 1.5 ))
+				$("#modalBody").css("width", parseInt( parseInt(screenHeight/1.4) * 1.5 ) + 30)
 			}
-
-			$("#modalBody").css("width", parseInt( parseInt(screenHeight/1.4) * 1.5 ) + 20)
-
 
 			if (screenWidth < 1085 || screenHeight < 785){
 				$("#resolutionHint").css("display", "");
