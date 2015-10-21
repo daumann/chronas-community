@@ -247,6 +247,10 @@ block js
 			var screenHeight = $(window).height() // 785
 
 			$("#tutFrame").css("height",parseInt(screenHeight/1.4))
+			if (parseInt( parseInt(screenHeight/1.4) * 1.5 ) < screenWidth){
+				$("#tutFrame").css("width", parseInt( parseInt(screenHeight/1.4) * 1.5 ))
+			}
+
 
 			if (screenWidth < 1085 || screenHeight < 785){
 				$("#resolutionHint").css("display", "");
