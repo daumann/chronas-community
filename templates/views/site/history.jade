@@ -11,7 +11,7 @@ block intro
 
 block content
 	#infoModal.modal.fade(role="dialog", style="overflow: hidden;")
-		.modal-dialog(style="width: 50%;")
+		.modal-dialog#modalBody
 			// Modal content
 			.modal-content(style="padding: 0px;")
 				.modal-header(style="padding: 9px 15px; border-bottom: 1px solid #eee; background: #f7f7f7; ")
@@ -250,6 +250,8 @@ block js
 			if (parseInt( parseInt(screenHeight/1.4) * 1.5 ) < screenWidth){
 				$("#tutFrame").css("width", parseInt( parseInt(screenHeight/1.4) * 1.5 ))
 			}
+
+			$("#modalBody").css("width", parseInt( parseInt(screenHeight/1.4) * 1.5 ) + 20)
 
 
 			if (screenWidth < 1085 || screenHeight < 785){
