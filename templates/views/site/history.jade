@@ -28,7 +28,7 @@ block content
 	div#bottomBar(style='position: absolute;width: 10px;height: calc(4% - 43px);left: calc(50% - 5px);background-color: rgb(51, 51, 51);z-index: 99;bottom: 0px;')
 	div#topBar(style='position: absolute;width: 10px;height: calc(4% - 43px);left: calc(50% - 5px);background-color: rgb(51, 51, 51);z-index: 99;')
 	div(style=' min-height: 100%;     height:100%;     width:100%;    position:absolute;    overflow:hidden;')
-		iframe#chronasWindow(onload="incrementLoaded = 30; fillBars(); if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {document.getElementById('loadergif').style.display='none';  document.getElementById('enterNow').style.display='block';}", src='/en/app/map/vas_6#4/35.35/32.17?year=52', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
+		iframe#chronasWindow(onload="incrementLoaded = 22; fillBars(); if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {document.getElementById('loadergif').style.display='none';  document.getElementById('enterNow').style.display='block';}", src='', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
 		#demo-content
 			#loader-wrapper
 				#loader
@@ -302,6 +302,7 @@ block js
 
 			$('[data-toggle="tooltip"]').tooltip();
 
+			$( "body" ).prepend( '<div id="bottomBar" style="position: absolute; width: 10px; left: calc(50% - 5px); z-index: 99; bottom: 0px; height: calc(50.0287252363416% - 43px); background-color: rgb(51, 51, 51);"></div><div id="topBar" style="position: absolute; width: 10px; left: calc(50% - 5px); z-index: 99; height: calc(50% - 43px); background-color: rgb(51, 51, 51);"></div>' );
 			$( "body" ).prepend( $("#infoModal") );
 					jQuery("#gallery").unitegallery({
 						gallery_theme: "grid",
@@ -369,6 +370,7 @@ block js
 
 						setTimeout(function(){
 							if(beginLoad !== undefined) resetBars();
+							else incrementLoaded = 12;
 
 							document.getElementById('loadergif').style.display='block';
 							document.getElementById('enterNow').style.display='none';
