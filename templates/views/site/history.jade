@@ -10,6 +10,10 @@ block intro
 		}
 
 block content
+	.page-content#mobileAlert(style="display: none")
+		.section.highlight: .container
+			h5 Sorry, there is no mobile version yet!
+			p Our Chronas application in its first release does not support mobile devices. This feature is on the road map though - check back later or use our application on a desktop!
 	#infoModal.modal.fade(role="dialog", style="overflow: hidden;")
 		.modal-dialog#modalBody(style="width: 50%;")
 			// Modal content
@@ -27,7 +31,7 @@ block content
 
 	div#bottomBar(style='position: absolute;width: 10px;height: calc(4% - 43px);left: calc(50% - 5px);background-color: rgb(51, 51, 51);z-index: 99;bottom: 0px;')
 	div#topBar(style='position: absolute;width: 10px;height: calc(4% - 43px);left: calc(50% - 5px);background-color: rgb(51, 51, 51);z-index: 99;')
-	div(style=' min-height: 100%;     height:100%;     width:100%;    position:absolute;    overflow:hidden;')
+	div#iframeDiv(style=' min-height: 100%;     height:100%;     width:100%;    position:absolute;    overflow:hidden;')
 		iframe#chronasWindow(onload="if(beginLoad !== undefined) { if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {console.log('app loaded:', $('#chronasWindow').attr('src'));incrementLoaded = 22; fillBars(); document.getElementById('loadergif').style.display='none';  document.getElementById('enterNow').style.display='block';} }", src='', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
 		#demo-content
 			#loader-wrapper
@@ -114,7 +118,7 @@ block content
 											p
 												h5(style="text-align: center; font-weight: 300;") README
 												ul(style="text-align: left;")
-													li If you are here the first time, make sure to watch the <span onclick="$('#infoModalB').click();" style="cursor: pointer; text-decoration: underline;">3 minute tutorial video</span>
+													li If you are here the first time, make sure to watch the <span onclick="$('#infoModalB').click();" style="cursor: pointer; text-decoration: underline;">short intro video</span> presenting the basic features
 													li Note that the data used in this app is yet inconsistent and will be editable by the community in the final release
 													li This is a computation heavy application and for some systems longer loading times are expected
 													li#browserHint(style="color: red; display: none;")
@@ -207,6 +211,7 @@ block js
 
 			$('#bottomBar').hide();
 			$('#topBar').hide();
+
 		}
 
 		function t1() {
@@ -250,6 +255,20 @@ block js
 		}
 
 		jQuery(document).ready(function(){
+
+			if (mobilecheck()){
+				$("#mobileHint").css("display", "");
+				$("#mobileHint").html("<b>No mobile support at this stage</b>");
+
+				$("#topBar").hide();
+				$("#bottomBar").hide();
+				$('#iframeDiv').hide();
+				$('#mobileAlert').show();
+			}
+			else {
+
+
+
 
 			var detectedBrowser = "";
 			if(!!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0){
@@ -298,10 +317,6 @@ block js
 				$("#resolutionHint").html("Your current resolution of <b>"+screenWidth+" x "+screenHeight+"</b> is below the recommended minimum of <b>1085 x 785</b>");
 			}
 
-			if (mobilecheck()){
-				$("#mobileHint").css("display", "");
-				$("#mobileHint").html("<b>No mobile support at this stage</b>");
-			}
 
 
 			$('[data-toggle="tooltip"]').tooltip();
@@ -383,7 +398,7 @@ block js
 					$($(".singImg")[0]).mouseenter();
 					$($(".singImg")[0]).click();
 
-
+			}
 		});
 
 

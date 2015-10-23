@@ -71,16 +71,16 @@ exports = module.exports = function(req, res) {
 					locals.mTotalLoginsText=Math.round((loginCount-start)/full * 10000) / 100  + "%";
 					locals.mTotalLoginsColor=silverColor;
 				}
-				else if (loginCount < 50){
+				else if (loginCount < 100){
 					locals.badgeList.push({src: '/images/badges/s_login.png', title: 'Silver Login Count: '+loginCount});
-					var full=50; var start=20;
+					var full=100; var start=20;
 					//$("#mTotalLogins").find(".loadText").html(Math.round((loginCount-start)/full * 10000) / 100  +
 					// "%");
 					//$("#mTotalLogins").find(".progress-bar").css("background-color",goldColor);
 					locals.mTotalLoginsText=Math.round((loginCount-start)/full * 10000) / 100  + "%";
 					locals.mTotalLoginsColor=goldColor;
 				}
-				else if (loginCount > 100){
+				else if (loginCount >= 100){
 					locals.badgeList.push({src: '/images/badges/g_login.png', title: 'Gold Login Count: '+loginCount});
 					locals.mTotalLoginsText="100%";
 					locals.mTotalLoginsColor=goldColor;
@@ -102,13 +102,13 @@ exports = module.exports = function(req, res) {
 					locals.mTimeSpentText=Math.round((c_timeSpent-start)/full * 10000) / 100  + "%";
 					locals.mTimeSpentColor=silverColor;
 				}
-				else if (c_timeSpent < 50){
+				else if (c_timeSpent < 100){
 					locals.badgeList.push({src: '/images/badges/s_timeSpent.png', title: 'Silver Time Spent in History: '+c_timeSpent});
-					var full=50; var start=20;
+					var full=100; var start=20;
 					locals.mTimeSpentText=Math.round((c_timeSpent-start)/full * 10000) / 100  + "%";
 					locals.mTimeSpentColor=goldColor;
 				}
-				else if (c_timeSpent > 100){
+				else if (c_timeSpent >= 100){
 					locals.badgeList.push({src: '/images/badges/g_timeSpent.png', title: 'Gold Time Spent in History: '+c_timeSpent});
 					locals.mTimeSpentText="100%";
 					locals.mTimeSpentColor=goldColor;
@@ -131,13 +131,13 @@ exports = module.exports = function(req, res) {
 					locals.mRaterText=Math.round((ratingsCount-start)/full * 10000) / 100  + "%";
 					locals.mRaterColor=silverColor;
 				}
-				else if (ratingsCount < 50){
+				else if (ratingsCount < 100){
 					locals.badgeList.push({src: '/images/badges/s_judge.png', title: 'Silver Judge: '+ratingsCount});
-					var full=50; var start=20;
+					var full=100; var start=20;
 					locals.mRaterText=Math.round((ratingsCount-start)/full * 10000) / 100  + "%";
 					locals.mRaterColor=goldColor;
 				}
-				else if (ratingsCount > 100){
+				else if (ratingsCount >= 100){
 					locals.badgeList.push({src: '/images/badges/g_judge.png', title: 'Gold Judge: '+ratingsCount});
 					locals.mRaterText="100%";
 					locals.mRaterColor=goldColor;
@@ -161,23 +161,17 @@ exports = module.exports = function(req, res) {
 					locals.mCreaterText=Math.round((creatorCount-start)/full * 10000) / 100  + "%";
 					locals.mCreaterColor=silverColor;
 				}
-				else if (creatorCount < 50){
+				else if (creatorCount < 100){
 					locals.badgeList.push({src: '/images/badges/s_creator.png', title: 'Silver Creator: '+creatorCount});
-					var full=50; var start=20;
+					var full=100; var start=20;
 					locals.mCreaterText=Math.round((creatorCount-start)/full * 10000) / 100  + "%";
 					locals.mCreaterColor=goldColor;
 				}
-				else if (creatorCount > 100){
+				else if (creatorCount >= 100){
 					locals.badgeList.push({src: '/images/badges/g_creator.png', title: 'Gold Creator: '+creatorCount});
 					locals.mCreaterText="100%";
 					locals.mCreaterColor=goldColor;
 				}
-
-
-			/*
-			locals.badgeList.push({src: '/images/organiser-craig_sharkie.jpg', title: 'Cicero - 10 Comments'});
-			locals.badgeList.push({src: '/images/organiser-craig_sharkie.jpg', title: 'Cicero - 10 Comments'});
-			*/
 
 
 			next();
