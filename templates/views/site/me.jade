@@ -64,7 +64,7 @@ block content
 							a(href='/auth/google', title='Connect your Google account').btn.btn-google
 								span.entypo-social.entypo-google-circles
 								|  Connect your Google account
-				if !user.services.facebook.isConfigured
+				//if !user.services.facebook.isConfigured
 					.form-group
 						label.col-sm-2.control-label Facebook
 						.col-sm-10
@@ -98,7 +98,7 @@ block content
 							span.entypo-social.entypo-google-circles
 							|  Your account is connected. 
 							a(href='?disconnect=google', title='Revoke authorization of your Google account') Disconnect
-				if user.services.facebook.isConfigured
+				//if user.services.facebook.isConfigured
 					.form-group
 						label.col-sm-2.control-label Facebook
 						.col-sm-10.text-muted.faux-label
