@@ -10,18 +10,17 @@ var logger = log4js.getLogger();
 
 exports = module.exports = function(req, res) {
 
-	logger.info("!    re1q0   !");
-	logger.info(res.locals.user._id + " spent 1min");
-	logger.info("!    req1   !");
+	if (res.locals.user !== undefined) {
+		var userQuery = User.model.findById(res.locals.user._id).select();
 
-	var userQuery = User.model.findById(res.locals.user._id).select();
+		userQuery.exec(function(err, myUser) {
+			if (!myUser) {
+			} else {
+				req.body.c_timeSpent = myUser.c_timeSpent+1;
+				myUser.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'c_timeSpent' }, function(err) {});
+			}
+		});
 
-	userQuery.exec(function(err, myUser) {
-		if (!myUser) {
-		} else {
-			req.body.c_timeSpent = myUser.c_timeSpent+1;
-			myUser.getUpdateHandler(req).process(req.body, { flashErrors: true, fields: 'c_timeSpent' }, function(err) {});
-		}
-	});
+	}
 	return res.apiResponse({ success: true });
 }

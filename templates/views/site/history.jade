@@ -151,6 +151,7 @@ block js
 		document.getElementById("header").style.height= "50px";
 		function frameload(){
 
+
 			$("#header").append('<div style=" text-align: center; pointer-events: none; "><i id="clickAngle" class="fa fa-angle-down" style=" margin: 0 auto; cursor: pointer; opacity: 0.6;pointer-events: all; font-size: 30px; "></i></div>')
 
 			t1();
@@ -203,12 +204,15 @@ block js
 
 			$('body').addClass('loaded');
 			$('h1').css('color','#222222');
+
+			$('#bottomBar').hide();
+			$('#topBar').hide();
 		}
 
 		function t1() {
 			endTime = new Date().getTime();
 			console.debug("!x!tt");
-			$.get("/api/addTs")// + parseInt(endTime-startTime).toString() );
+			$.get("/api/addTs")
 			console.debug("!x!tt  " + "/api/addingTs/" + parseInt(endTime - startTime).toString());
 			setTimeout(function(){ t1(); }, 60000);
 
