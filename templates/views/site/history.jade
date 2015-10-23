@@ -212,6 +212,37 @@ block js
 
 		};
 
+		var beginLoad = undefined;
+
+		function runBars() {
+			var loaded = 3;
+			var load = function () {
+				loaded += incrementLoaded;
+				$("#bottomBar").css("height", "calc(" + (Math.sqrt(Math.sqrt(loaded)) * 5) + "% - 43px)")
+				$("#topBar").css("height", "calc(" + (Math.sqrt(Math.sqrt(loaded)) * 5) + "% - 43px)")
+
+				if ((Math.sqrt(Math.sqrt(loaded)) * 5) > 50) {
+					clearInterval(beginLoad);
+				}
+			};
+			beginLoad = setInterval(function () {
+				load();
+			}, 40);
+		}
+
+		function resetBars() {
+			clearInterval(beginLoad);
+			$("#bottomBar").css("height", "calc(3% - 43px)")
+			$("#topBar").css("height", "calc(3% - 43px)")
+
+		}
+
+		function fillBars() {
+			clearInterval(beginLoad);
+			$("#bottomBar").css("height", "calc(50% - 43px)")
+			$("#topBar").css("height", "calc(50% - 43px)")
+		}
+
 		jQuery(document).ready(function(){
 
 			var detectedBrowser = "";
@@ -313,8 +344,7 @@ block js
 					});
 
 					$(".singImg").click(function() {
-						resetBars();
-						runBars();
+
 						$("#prevSection").addClass("previewSectionActive")
 						document.getElementById('loadergif').style.display='block';
 						document.getElementById('enterNow').style.display='none';
@@ -334,11 +364,15 @@ block js
 
 
 
+
 						setTimeout(function(){
+							if(beginLoad !== undefined) resetBars();
+
 							document.getElementById('loadergif').style.display='block';
 							document.getElementById('enterNow').style.display='none';
 							$("#chronasWindow").attr('src', '/en/app/map/vas_6#4/'+tmpLoc+'?year=' + $("#selectedYear").val());
 							$("#prevSection").removeClass("previewSectionActive")
+							runBars();
 						},300);
 
 
@@ -351,31 +385,5 @@ block js
 
 		});
 
-		function resetBars() {
-			clearInterval(beginLoad);
-			$("#bottomBar").css("height", "calc(3% - 43px)")
-			$("#topBar").css("height", "calc(3% - 43px)")
 
-		}
 
-		function fillBars() {
-			clearInterval(beginLoad);
-			$("#bottomBar").css("height", "calc(50% - 43px)")
-			$("#topBar").css("height", "calc(50% - 43px)")
-		}
-
-		function runBars() {
-			var loaded = 3;
-				var load = function () {
-					loaded += incrementLoaded;
-				$("#bottomBar").css("height", "calc(" + (Math.sqrt(Math.sqrt(loaded)) * 5) + "% - 43px)")
-				$("#topBar").css("height", "calc(" + (Math.sqrt(Math.sqrt(loaded)) * 5) + "% - 43px)")
-
-				if ((Math.sqrt(Math.sqrt(loaded)) * 5) > 50) {
-					clearInterval(beginLoad);
-				}
-			};
-			var beginLoad = setInterval(function () {
-				load();
-			}, 40);
-		}
