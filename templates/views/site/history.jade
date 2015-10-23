@@ -28,7 +28,7 @@ block content
 	div#bottomBar(style='position: absolute;width: 10px;height: calc(4% - 43px);left: calc(50% - 5px);background-color: rgb(51, 51, 51);z-index: 99;bottom: 0px;')
 	div#topBar(style='position: absolute;width: 10px;height: calc(4% - 43px);left: calc(50% - 5px);background-color: rgb(51, 51, 51);z-index: 99;')
 	div(style=' min-height: 100%;     height:100%;     width:100%;    position:absolute;    overflow:hidden;')
-		iframe#chronasWindow(onload="if(beginLoad !== undefined) {incrementLoaded = 22; fillBars(); if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {document.getElementById('loadergif').style.display='none';  document.getElementById('enterNow').style.display='block';} }", src='', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
+		iframe#chronasWindow(onload="if(beginLoad !== undefined) { if (document.getElementById('chronasWindow').src !== '' && document.getElementById('chronasWindow').src !== 'http://app.chronas.org') {console.log('app loaded:', $('#chronasWindow').attr('src'));incrementLoaded = 22; fillBars(); document.getElementById('loadergif').style.display='none';  document.getElementById('enterNow').style.display='block';} }", src='', style='display: none; border: 0; width: 100%; height: 100%') Please update your Browser.
 		#demo-content
 			#loader-wrapper
 				#loader
@@ -340,10 +340,6 @@ block js
 							$("#prevSection").removeClass("previewSectionActive")
 						},300);
 
-
-
-
-
 					});
 
 					$(".singImg").click(function() {
@@ -365,12 +361,9 @@ block js
 						$("#prevImage").attr('src','/images/mapImages'+$(this).attr("data-value").split("|")[0]+'.jpg');
 						$("#chronasWindow").attr('src', '')
 
-
-
-
 						setTimeout(function(){
 							if(beginLoad !== undefined) resetBars();
-							else incrementLoaded = 12;
+							else incrementLoaded = 8;
 
 							document.getElementById('loadergif').style.display='block';
 							document.getElementById('enterNow').style.display='none';
