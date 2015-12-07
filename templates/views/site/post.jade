@@ -55,7 +55,7 @@ block content
 										h6.mt-0
 											a(href='/member/'+comment.author.name.full.replace(/ /g,"-").toLowerCase())
 												=comment.author.name.full
-											span.text-muted  &middot; #{moment(comment.publishedOn).fromNow()}
+											span.text-muted  &middot; #{moment(comment.date).fromNow()}
 										!=comment.content.html
 					if user
 						//- Reply form
