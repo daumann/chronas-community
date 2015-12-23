@@ -77,7 +77,7 @@ keystone.set('email locals', {
 	host: (function() {
 /*		if (keystone.get('env') === 'staging') return 'http://chronas-beta.herokuapp.com';
 		if (keystone.get('env') === 'production') return 'http://www.chronas.org';*/
-		return /*(keystone.get('host') || 'http://localhost:')*/ '127.0.0.1:' + (keystone.get('port') || '3000');
+		return(keystone.get('host') || 'http://localhost:')  /*'127.0.0.1:'*/ + (keystone.get('port') || '3000');
 	})()
 });
 

@@ -1,110 +1,102 @@
 extends ../../layouts/default
 block intro
-	script(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-	link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    script(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
 block content
-	.container-sm
-		if !member.isPublic
-			.lead.text-center
-				.h2.mb-0.text-muted: span.entypo.entypo-user
-				br
-				.text-muted This member has a private profile.
-		else
-			- var twitterUsername = member.twitterUsername || (member.twitter ? member.twitter.replace('@', ''): '');
-			- var githubUsername = member.githubUsername || (member.github ? member.github.replace('@', '') : '');
-			.page-intro
-				.text-left: a(href='/members').text-muted &larr; back to all members
-				//- hr
-				//- code=JSON.stringify(member)
-			.member.member--profile
-				.member-section.member__info
-					.row
-						.col-sm-3
-							img(src=(member.photo.exists ? member._.photo.thumbnail(600,600) : member.avatarUrl || '/images/avatar.png'), alt=member.name.full).img-responsive.img-rounded
-						.col-sm-9
-							h1.mb-0= member.name.full
-							span.badges
-								each badge in badgeList
-									img.img-circle(src=badge.src, title=badge.title, width='20', height='20')
-							p.text-muted.mv-1 Member since #{moment(member.createdAt).format('MMMM YYYY')}
-							if twitterUsername || githubUsername
-								.member__accounts.mb-1
-									if twitterUsername
-										a(href='https://twitter.com/' + twitterUsername, target='_blank', data-toggle='tooltip', data-title='@' + twitterUsername, data-placement='top').member__account.member__account--twitter.btn.btn-default
-											span.entypo-social.entypo-twitter
-											=twitterUsername
-									if githubUsername
-										a(href='https://github.com/' + githubUsername, target='_blank', data-toggle='tooltip', data-title=githubUsername, data-placement='top').member__account.member__account--github.btn.btn-default
-											span.entypo-social.entypo-github
-											=githubUsername
-							if member.bio.html
-								!= member.bio.html
-					.member-section.member__additional-info
-						h5.text-caps Activity Statistics
-						ul.list-unstyled.mt-1
-							li.media
-								.pull-left
-									.date(class='date--present')
-										i.fa.fa-sign-in(style="width: 54px; font-size: 43px; margin-left: 7px !important; padding-left: 0px !important; color: rgb(180, 180, 180); line-height: 1.25;")
-								.media-body
-									h5: a Last Login
-									p= (new Date(member.createdAt).getTime() > new Date(member.lastLogin).getTime()) ? moment(member.createdAt).format('llll') + " (" + moment(member.lastLogin).fromNow() + ")" : moment(member.lastLogin).format('llll') + " (" + moment(member.lastLogin).fromNow() + ")"
-							hr
-							p.text-muted.mv-1 There are three levels of badges (Bronze, Silver, Gold) for the following statistics. The progress bars and its colors indicate the progress to the next level.
-							li.media#mTotalLogins
-								.pull-left
-									.progress
-										.progress-bar(role='progressbar', aria-valuenow='#{mTotalLoginsText}', aria-valuemin='0', aria-valuemax='100', style="width:#{mTotalLoginsText}; background-color:#{mTotalLoginsColor}")
-											span.loadText #{mTotalLoginsText}
-								.media-body
-									h5: a Total Logins
-									p= member.loginCount
+    .container-sm
+        if !member.isPublic
+            .lead.text-center
+                .h2.mb-0.text-muted: span.entypo.entypo-user
+                br
+                .text-muted This member has a private profile.
+        else
+            - var twitterUsername = member.twitterUsername || (member.twitter ? member.twitter.replace('@', ''): '');
+            - var githubUsername = member.githubUsername || (member.github ? member.github.replace('@', '') : '');
+            .page-intro
+                .text-left: a(href='/members').text-muted &larr; back to all members
+                //- hr
+                //- code=JSON.stringify(member)
+            .member.member--profile
+                .member-section.member__info
+                    .row
+                        .col-sm-3
+                            img(src=(member.photo.exists ? member._.photo.thumbnail(600,600) : member.avatarUrl || '/images/avatar.png'), alt=member.name.full).img-responsive.img-rounded
+                        .col-sm-9
+                            h1.mb-0= member.name.full
+                            span.badges
+                                each badge in badgeList
+                                    img.img-circle(src=badge.src, title=badge.title, width='20', height='20')
+                            p.text-muted.mv-1 Member since #{moment(member.createdAt).format('MMMM YYYY')}
+                            if twitterUsername || githubUsername
+                                .member__accounts.mb-1
+                                    if twitterUsername
+                                        a(href='https://twitter.com/' + twitterUsername, target='_blank', data-toggle='tooltip', data-title='@' + twitterUsername, data-placement='top').member__account.member__account--twitter.btn.btn-default
+                                            span.entypo-social.entypo-twitter
+                                            =twitterUsername
+                                    if githubUsername
+                                        a(href='https://github.com/' + githubUsername, target='_blank', data-toggle='tooltip', data-title=githubUsername, data-placement='top').member__account.member__account--github.btn.btn-default
+                                            span.entypo-social.entypo-github
+                                            =githubUsername
+                            if member.bio.html
+                                != member.bio.html
+                    .member-section.member__additional-info
+                        h5.text-caps Activity Statistics
+                        ul.list-unstyled.mt-1
+                            li.media
+                                .pull-left
+                                    .date(class='date--present')
+                                        i.fa.fa-sign-in(style="width: 54px; font-size: 43px; margin-left: 7px !important; padding-left: 0px !important; color: rgb(180, 180, 180); line-height: 1.25;")
+                                .media-body
+                                    h5: a Last Login
+                                    p= (new Date(member.createdAt).getTime() > new Date(member.lastLogin).getTime()) ? moment(member.createdAt).format('llll') + " (" + moment(member.lastLogin).fromNow() + ")" : moment(member.lastLogin).format('llll') + " (" + moment(member.lastLogin).fromNow() + ")"
+                            hr
+                            p.text-muted.mv-1 There are three levels of badges (Bronze, Silver, Gold) for the following statistics. The progress bars and its colors indicate the progress to the next level.
+                            li.media#mTotalLogins
+                                .pull-left
+                                    .progress
+                                        .progress-bar(role='progressbar', aria-valuenow='#{mTotalLoginsText}', aria-valuemin='0', aria-valuemax='100', style="width:#{mTotalLoginsText}; background-color:#{mTotalLoginsColor}")
+                                            span.loadText #{mTotalLoginsText}
+                                .media-body
+                                    h5: a Total Logins
+                                    p= member.loginCount
 
-							li.media#mTimeSpent
-								.pull-left
-									.progress
-										.progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0', aria-valuemax='100', style='width:#{mTimeSpentText}; background-color:#{mTimeSpentColor}')
-											span.loadText #{mTimeSpentText}
-								.media-body
-									h5: a Time spent in history
-									p= member.c_timeSpent + " min"
-							li.media#mChronasEdits
-								.pull-left
-									.progress
-										.progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0', aria-valuemax='100', style='width:#{mChronasEditsText}; background-color:#{mChronasEditsColor}')
-											span.loadText #{mChronasEditsText}
-								.media-body
-									h5: a Total Chronas edits
-									p= member.c_modCount + " (not available yet)"
-							li.media#mRater
-								.pull-left
-									.progress
-										.progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0',aria-valuemax='100', style='width:#{mRaterText};background-color:#{mRaterColor}')
-											span.loadText #{mRaterText}
-								.media-body
-									h5: a Rated threads and comments
-									p= member.ratingsCount
-							li.media#mCreater
-								.pull-left
-									.progress
-										.progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0',aria-valuemax='100', style='width:#{mCreaterText}; background-color:#{mCreaterColor}')
-											span.loadText #{mCreaterText}
-								.media-body
-									h5: a Created threads and comments
-									p= member.threadCount + " and " + member.commentsCount
-				if member.talks && member.talks.length
-					.member-section.member__additional-info
-						h5.text-caps Talks
-						ul.list-unstyled.mt-1
-							each talk in member.talks
-								li.media
-									.pull-left
-										.date(class=talk.meetup.state == 'past' ? 'date--past' : 'date--present')
-											small.block=moment(talk.meetup.startDate).format('MMM')
-											strong.block=moment(talk.meetup.startDate).format('DD')
-									.media-body
-										h5: a(href=talk.meetup.url)=talk.name
-										!=talk.description
+                            li.media#mTimeSpent
+                                .pull-left
+                                    .progress
+                                        .progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0', aria-valuemax='100', style='width:#{mTimeSpentText}; background-color:#{mTimeSpentColor}')
+                                            span.loadText #{mTimeSpentText}
+                                .media-body
+                                    h5: a Time spent in history
+                                    p= member.c_timeSpent + " min"
+
+                            li.media#mRater
+                                .pull-left
+                                    .progress
+                                        .progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0',aria-valuemax='100', style='width:#{mRaterText};background-color:#{mRaterColor}')
+                                            span.loadText #{mRaterText}
+                                .media-body
+                                    h5: a Rated threads and comments
+                                    p= member.ratingsCount
+                            li.media#mCreater
+                                .pull-left
+                                    .progress
+                                        .progress-bar(role='progressbar', aria-valuenow='70', aria-valuemin='0',aria-valuemax='100', style='width:#{mCreaterText}; background-color:#{mCreaterColor}')
+                                            span.loadText #{mCreaterText}
+                                .media-body
+                                    h5: a Created threads and comments
+                                    p= member.threadCount + " and " + member.commentsCount
+
+                if member.mentoring && member.mentoring.paid
+                    .member-section.member__additional-info
+                        h5.text-caps History Data Moderator
+                        ul.list-unstyled.mt-1
+                            li.media
+                                .pull-left
+                                    .date(class='date--present')
+                                        i.fa.fa-pencil-square-o(style="width: 54px; font-size: 43px; margin-left: 14px !important; padding-left: 0px !important; color: rgb(180, 180, 180); line-height: 1.25;")
+                                .media-body
+                                    h5: a Total Chronas Edits
+                                    p= member.c_modCount
 block js
-	script(src='/package/unitegallery/js/jquery-11.0.min.js')
-	script(src='/js/views/member.js')
+    script(src='/package/unitegallery/js/jquery-11.0.min.js')
+    script(src='/js/views/member.js')

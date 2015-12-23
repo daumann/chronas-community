@@ -115,6 +115,7 @@ exports = module.exports = function(app) {
 	app.all('/api/chronas/:id', routes.api.meetup);
 	app.all('/api/ts/:id', routes.api.meetup);
 	app.all('/api/addTs', routes.api.addTs);
+	app.all('/api/addEdit/:id/:am', routes.api.addEdit);
 	
 	// API - App
 	app.all('/api/app/status', routes.api.app.status);
