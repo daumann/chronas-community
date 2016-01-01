@@ -295,6 +295,14 @@ block js
 			}
 			if(false || !!document.documentMode) {
 				detectedBrowser = "Internet Explorer";
+				$("#mobileHint").css("display", "");
+				$("#mobileHint").html("<b>No support for Internet Explorer at this stage.</b> Please try Google Chrome or Firefox.");
+
+				$("#topBar").hide();
+				$("#bottomBar").hide();
+				$('#iframeDiv').hide();
+				$('#mobileAlert').show();
+
 				$("#browserHint").html("Be advised that <b>" + detectedBrowser + "</b> is currently <b>NOT</b> a " +
 						"supported browser.<span style='color: initial'> This application is optimized for Google Chrome.</span>");
 
