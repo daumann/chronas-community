@@ -387,31 +387,83 @@ block js
 
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
+                } else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#milBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#milBox").click();
                 }
+                
                 if ($("#citiesBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#citiesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#citiesBox").click();
                     if ($('#chronasWindow').contents().find("#cityChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#cityChecked").parent().click()
                 }
+                else if (
+                $("#citiesBox").is(':checked') ||
+                $("#castlesBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#citiesBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#citiesBox").click();
+                }
+                                
                 if ($("#expBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#expBox").is(':checked'))
                         $('#chronasWindow').contents().find("#expBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#expBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#expBox").click();
+                }
+                
                 if ($("#castlesBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#castlesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#castlesBox").click();
                     if ($('#chronasWindow').contents().find("#cityChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#cityChecked").parent().click()
                 }
+                else if (
+                $("#citiesBox").is(':checked') ||
+                $("#castlesBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#castlesBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#castlesBox").click();
+                }
+                
                 if ($("#polBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#polBox").is(':checked'))
                         $('#chronasWindow').contents().find("#polBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#polBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#polBox").click();
+                }
+                
                 if ($("#battBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#eventsChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#eventsChecked").parent().click()
@@ -422,6 +474,19 @@ block js
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#sciBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#sciBox").click();
+                }
+                
                 if ($("#siegeBox").is(':checked')) {
                     if ($('#chronasWindow').contents().find("#eventsChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#eventsChecked").parent().click()
@@ -432,6 +497,19 @@ block js
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#artBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#artBox").click();
+                }
+                
                 if ($("#arteBox").is(':checked')) {
                     if ($('#chronasWindow').contents().find("#artChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#artChecked").parent().click()
@@ -442,29 +520,81 @@ block js
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#relBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#relBox").click();
+                }
+                
                 if ($("#unkAreaBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unkAreaBox").click();
                     if ($('#chronasWindow').contents().find("#otherChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#otherChecked").parent().click()
                 }
+                else if (
+                $("#unkAreaBox").is(':checked') ||
+                $("#unkBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#unkAreaBox").click();
+                }
+                
                 if ($("#athBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#athBox").is(':checked'))
                         $('#chronasWindow').contents().find("#athBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#athBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#athBox").click();
+                }
+                
                 if ($("#unkBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#unclassifiedBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unclassifiedBox").click();
                     if ($('#chronasWindow').contents().find("#otherChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#otherChecked").parent().click()
                 }
+                else if (
+                $("#unkAreaBox").is(':checked') ||
+                $("#unkBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#unkBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#unkBox").click();
+                }
+                
                 if ($("#uncBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#uncBox").is(':checked'))
                         $('#chronasWindow').contents().find("#uncBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
+                }
+                else if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    if ($('#chronasWindow').contents().find("#uncBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#uncBox").click();
                 }
 
                 if ($("#rulA").is(':checked')) {
