@@ -376,17 +376,13 @@ block js
 
             var nY = parseInt($("#selectedYear").val());
 
-            document.getElementById("chronasWindow").contentWindow.timeline2.setCustomTime(new Date().setFullYear(nY));
-            document.getElementById("chronasWindow").contentWindow.playback.setCursor(new Date().setFullYear(nY))
 
-            setTimeout(function () {
-
-                if ($("#milBox").is(':checked')){
-                    if (!$('#chronasWindow').contents().find("#milBox").is(':checked'))
-                        $('#chronasWindow').contents().find("#milBox").click();
-
-                    if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
-                        $('#chronasWindow').contents().find("#peopleChecked").parent().click()
+            if ($("#milBox").is(':checked')){
+                if (!$('#chronasWindow').contents().find("#milBox").is(':checked'))
+                    $('#chronasWindow').contents().find("#milBox").click();
+            
+                if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
+                    $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 } else if (
                 $("#milBox").is(':checked') ||
                 $("#expBox").is(':checked') ||
@@ -399,7 +395,7 @@ block js
                     if ($('#chronasWindow').contents().find("#milBox").is(':checked'))
                         $('#chronasWindow').contents().find("#milBox").click();
                 }
-                
+            
                 if ($("#citiesBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#citiesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#citiesBox").click();
@@ -412,7 +408,7 @@ block js
                     if ($('#chronasWindow').contents().find("#citiesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#citiesBox").click();
                 }
-                                
+            
                 if ($("#expBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#expBox").is(':checked'))
                         $('#chronasWindow').contents().find("#expBox").click();
@@ -431,7 +427,7 @@ block js
                     if ($('#chronasWindow').contents().find("#expBox").is(':checked'))
                         $('#chronasWindow').contents().find("#expBox").click();
                 }
-                
+            
                 if ($("#castlesBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#castlesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#castlesBox").click();
@@ -444,7 +440,7 @@ block js
                     if ($('#chronasWindow').contents().find("#castlesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#castlesBox").click();
                 }
-                
+            
                 if ($("#polBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#polBox").is(':checked'))
                         $('#chronasWindow').contents().find("#polBox").click();
@@ -463,7 +459,7 @@ block js
                     if ($('#chronasWindow').contents().find("#polBox").is(':checked'))
                         $('#chronasWindow').contents().find("#polBox").click();
                 }
-                
+            
                 if ($("#battBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#eventsChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#eventsChecked").parent().click()
@@ -486,7 +482,7 @@ block js
                     if ($('#chronasWindow').contents().find("#sciBox").is(':checked'))
                         $('#chronasWindow').contents().find("#sciBox").click();
                 }
-                
+            
                 if ($("#siegeBox").is(':checked')) {
                     if ($('#chronasWindow').contents().find("#eventsChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#eventsChecked").parent().click()
@@ -509,7 +505,7 @@ block js
                     if ($('#chronasWindow').contents().find("#artBox").is(':checked'))
                         $('#chronasWindow').contents().find("#artBox").click();
                 }
-                
+            
                 if ($("#arteBox").is(':checked')) {
                     if ($('#chronasWindow').contents().find("#artChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#artChecked").parent().click()
@@ -532,7 +528,7 @@ block js
                     if ($('#chronasWindow').contents().find("#relBox").is(':checked'))
                         $('#chronasWindow').contents().find("#relBox").click();
                 }
-                
+            
                 if ($("#unkAreaBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unkAreaBox").click();
@@ -545,7 +541,7 @@ block js
                     if ($('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unkAreaBox").click();
                 }
-                
+            
                 if ($("#athBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#athBox").is(':checked'))
                         $('#chronasWindow').contents().find("#athBox").click();
@@ -564,7 +560,7 @@ block js
                     if ($('#chronasWindow').contents().find("#athBox").is(':checked'))
                         $('#chronasWindow').contents().find("#athBox").click();
                 }
-                
+            
                 if ($("#unkBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#unclassifiedBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unclassifiedBox").click();
@@ -574,10 +570,10 @@ block js
                 else if (
                 $("#unkAreaBox").is(':checked') ||
                 $("#unkBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#unkBox").is(':checked'))
-                        $('#chronasWindow').contents().find("#unkBox").click();
+                    if ($('#chronasWindow').contents().find("#unclassifiedBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#unclassifiedBox").click();
                 }
-                
+            
                 if ($("#uncBox").is(':checked')) {
                     if (!$('#chronasWindow').contents().find("#uncBox").is(':checked'))
                         $('#chronasWindow').contents().find("#uncBox").click();
@@ -596,33 +592,43 @@ block js
                     if ($('#chronasWindow').contents().find("#uncBox").is(':checked'))
                         $('#chronasWindow').contents().find("#uncBox").click();
                 }
-
+            
+            
+            
+            
+            
+            
                 if ($("#rulA").is(':checked')) {
-
+            
                     if ($('#chronasWindow').contents().find("#A-Ruler").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#A-Ruler").parent().click()
                 }
                 if ($("#relA").is(':checked')) {
-
+            
                     if ($('#chronasWindow').contents().find("#A-Religion").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#A-Religion").parent().click()
                 }
                 if ($("#mrelA").is(':checked')) {
-
+            
                     if ($('#chronasWindow').contents().find("#A-MainRel").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#A-MainRel").parent().click()
                 }
                 if ($("#culA").is(':checked')) {
-
+            
                     if ($('#chronasWindow').contents().find("#A-Culture").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#A-Culture").parent().click()
                 }
                 if ($("#popA").is(':checked')) {
-
+            
                     if ($('#chronasWindow').contents().find("#A-Population").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#A-Population").parent().click()
                 }
-            }, 300);
+        
+            setTimeout(function () {
+                document.getElementById("chronasWindow").contentWindow.timeline2.setCustomTime(new Date().setFullYear(nY));
+                document.getElementById("chronasWindow").contentWindow.playback.setCursor(new Date().setFullYear(nY))
+                
+            }, 500);
         }
 
         function t1() {
