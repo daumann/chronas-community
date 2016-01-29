@@ -311,7 +311,7 @@ block js
         function frameload() {
 
             if ($("#radio_fullscreen").is(':checked')){
-                requestFullScreen();
+                toggleFullScreen();
             }
 
 
@@ -382,42 +382,42 @@ block js
             setTimeout(function () {
 
                 if ($("#milBox").is(':checked')){
-                    if ($('#chronasWindow').contents().find("#milBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#milBox").is(':checked'))
                         $('#chronasWindow').contents().find("#milBox").click();
 
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
                 if ($("#citiesBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#citiesBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#citiesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#citiesBox").click();
                     if ($('#chronasWindow').contents().find("#cityChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#cityChecked").parent().click()
                 }
                 if ($("#expBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#expBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#expBox").is(':checked'))
                         $('#chronasWindow').contents().find("#expBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
                 if ($("#castlesBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#castlesBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#castlesBox").is(':checked'))
                         $('#chronasWindow').contents().find("#castlesBox").click();
                     if ($('#chronasWindow').contents().find("#cityChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#cityChecked").parent().click()
                 }
                 if ($("#polBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#polBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#polBox").is(':checked'))
                         $('#chronasWindow').contents().find("#polBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
                 if ($("#battBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#eventsChecked").parent().hasClass("off"))
+                    if (!$('#chronasWindow').contents().find("#eventsChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#eventsChecked").parent().click()
                 }
                 if ($("#sciBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#sciBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#sciBox").is(':checked'))
                         $('#chronasWindow').contents().find("#sciBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
@@ -427,7 +427,7 @@ block js
                         $('#chronasWindow').contents().find("#eventsChecked").parent().click()
                 }
                 if ($("#artBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#artBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#artBox").is(':checked'))
                         $('#chronasWindow').contents().find("#artBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
@@ -437,31 +437,31 @@ block js
                         $('#chronasWindow').contents().find("#artChecked").parent().click()
                 }
                 if ($("#relBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#relBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#relBox").is(':checked'))
                         $('#chronasWindow').contents().find("#relBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
                 if ($("#unkAreaBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unkAreaBox").click();
                     if ($('#chronasWindow').contents().find("#otherChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#otherChecked").parent().click()
                 }
                 if ($("#athBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#athBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#athBox").is(':checked'))
                         $('#chronasWindow').contents().find("#athBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
                 if ($("#unkBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#unkBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#unkBox").is(':checked'))
                         $('#chronasWindow').contents().find("#unkBox").click();
                     if ($('#chronasWindow').contents().find("#otherChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#otherChecked").parent().click()
                 }
                 if ($("#uncBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#uncBox").is(':checked'))
+                    if (!$('#chronasWindow').contents().find("#uncBox").is(':checked'))
                         $('#chronasWindow').contents().find("#uncBox").click();
                     if ($('#chronasWindow').contents().find("#peopleChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
@@ -693,28 +693,25 @@ block js
             }
         });
 
-        function requestFullScreen() {
-
-            var el = document.body;
-
-            // Supports most browsers and their versions.
-            var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen
-                    || el.mozRequestFullScreen || el.msRequestFullScreen;
-
-            if (requestMethod) {
-
-                // Native full screen.
-                requestMethod.call(el);
-
-            } else if (typeof window.ActiveXObject !== "undefined") {
-
-                // Older IE.
-                var wscript = new ActiveXObject("WScript.Shell");
-
-                if (wscript !== null) {
-                    wscript.SendKeys("{F11}");
-                }
-            }
+        function toggleFullScreen() {
+          if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+           (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+            if (document.documentElement.requestFullScreen) {  
+              document.documentElement.requestFullScreen();  
+            } else if (document.documentElement.mozRequestFullScreen) {  
+              document.documentElement.mozRequestFullScreen();  
+            } else if (document.documentElement.webkitRequestFullScreen) {  
+              document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+            }  
+          } else {  
+            if (document.cancelFullScreen) {  
+              document.cancelFullScreen();  
+            } else if (document.mozCancelFullScreen) {  
+              document.mozCancelFullScreen();  
+            } else if (document.webkitCancelFullScreen) {  
+              document.webkitCancelFullScreen();  
+            }  
+          }  
         }
 
 
