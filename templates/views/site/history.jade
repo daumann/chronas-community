@@ -624,9 +624,25 @@ block js
                         $('#chronasWindow').contents().find("#A-Population").parent().click()
                 }
         
+        	document.getElementById("chronasWindow").contentWindow.timeline2.setCustomTime(new Date().setFullYear(nY));
+            document.getElementById("chronasWindow").contentWindow.playback.setCursor(new Date().setFullYear(nY))
+                
             setTimeout(function () {
-                document.getElementById("chronasWindow").contentWindow.timeline2.setCustomTime(new Date().setFullYear(nY));
-                document.getElementById("chronasWindow").contentWindow.playback.setCursor(new Date().setFullYear(nY))
+                if (
+                $("#milBox").is(':checked') ||
+                $("#expBox").is(':checked') ||
+                $("#polBox").is(':checked') ||
+                $("#sciBox").is(':checked') ||
+                $("#artBox").is(':checked') ||
+                $("#relBox").is(':checked') ||
+                $("#athBox").is(':checked') ||
+                $("#uncBox").is(':checked')) {
+                    
+                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
+                         setTimeout(function () {
+                         	$('#chronasWindow').contents().find("#peopleChecked").parent().click()
+                         }, 500);
+                }
                 
             }, 500);
         }
