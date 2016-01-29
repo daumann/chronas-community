@@ -688,6 +688,14 @@ block js
 
 
                 });
+                
+                if (beginLoad !== undefined) resetBars();
+                        else incrementLoaded = 6;
+
+                document.getElementById('loadergif').style.display = 'block';
+                document.getElementById('enterNow').style.display = 'none';
+                $("#prevSection").removeClass("previewSectionActive")
+                runBars();
 
                 $($(".singImg")[0]).mouseenter();
                 $($(".singImg")[0]).click();
