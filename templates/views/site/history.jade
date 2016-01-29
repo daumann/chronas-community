@@ -530,16 +530,16 @@ block js
                 }
             
                 if ($("#unkAreaBox").is(':checked')) {
-                    if (!$('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
-                        $('#chronasWindow').contents().find("#unkAreaBox").click();
+                    if (!$('#chronasWindow').contents().find("#areaInfoBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#areaInfoBox").click();
                     if ($('#chronasWindow').contents().find("#otherChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#otherChecked").parent().click()
                 }
                 else if (
                 $("#unkAreaBox").is(':checked') ||
                 $("#unkBox").is(':checked')) {
-                    if ($('#chronasWindow').contents().find("#unkAreaBox").is(':checked'))
-                        $('#chronasWindow').contents().find("#unkAreaBox").click();
+                    if ($('#chronasWindow').contents().find("#areaInfoBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#areaInfoBox").click();
                 }
             
                 if ($("#athBox").is(':checked')) {
