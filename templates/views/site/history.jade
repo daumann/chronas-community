@@ -455,8 +455,8 @@ block js
                         $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                 }
                 if ($("#unkBox").is(':checked')) {
-                    if (!$('#chronasWindow').contents().find("#unkBox").is(':checked'))
-                        $('#chronasWindow').contents().find("#unkBox").click();
+                    if (!$('#chronasWindow').contents().find("#unclassifiedBox").is(':checked'))
+                        $('#chronasWindow').contents().find("#unclassifiedBox").click();
                     if ($('#chronasWindow').contents().find("#otherChecked").parent().hasClass("off"))
                         $('#chronasWindow').contents().find("#otherChecked").parent().click()
                 }
