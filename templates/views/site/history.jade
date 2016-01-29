@@ -671,6 +671,7 @@ block js
                     $("#selectedLocation").val($(this).attr("data-value").split("|")[1])
                     var tmpLoc = $(this).attr("data-value").split("|")[2];
                     $("#prevImage").attr('src', '/images/mapImages' + $(this).attr("data-value").split("|")[0] + '.jpg');
+                    /*
                     $("#chronasWindow").attr('src', '')
 
                     setTimeout(function () {
@@ -683,6 +684,7 @@ block js
                         $("#prevSection").removeClass("previewSectionActive")
                         runBars();
                     }, 300);
+                    */
 
 
                 });
