@@ -840,9 +840,10 @@ block js
 
 
                 });
+                var rndSelect = Math.floor((Math.random() * 11));
 
-                $($(".singImg")[0]).mouseenter();
-                $($(".singImg")[0]).click();
+                $($(".singImg")[rndSelect]).mouseenter();
+                $($(".singImg")[rndSelect]).click();
 
             }
         });
