@@ -32,7 +32,7 @@ var AttendingApp = React.createClass({
 		if (!this.state.isReady) return <h3 className="heading-with-line">...</h3>;
 		var count = this.state.attendees ? this.state.attendees.length : '...';
 		var plural = count === 1 ? 'We are' : 'We are';
-		return <div><h3 className="heading-with-line"> {plural} Chronas ({count})</h3><h5>A random 60 user sample:</h5></div> ;
+		return <div><h3 className="heading-with-line"> {plural} Chronas ({count})</h3><h5>The latest 50 newcomers:</h5></div> ;
 	},
 
 	render: function() {
@@ -40,10 +40,10 @@ var AttendingApp = React.createClass({
 		if (this.state.isReady) {
 			var iter=0;
 			var itLength=this.state.attendees.length;
-			var itStart=Math.floor((Math.random() * 1800) + 1);
+			var itStart=Math.floor((Math.random() * itLength) -50);
 			attendeesList = this.state.attendees.map(function(person) {
 				iter++;
-				if (iter>=itStart && iter<(itStart+61) ){
+				if (iter>=itStart && iter<(itStart+50) ){
 					return <li key={person.id}><a href={person.url}><img width="40" height="40" alt={person.name} className="img-circle" src={person.photo ? person.photo : "/images/avatar.png"} /></a></li>
 
 				}
