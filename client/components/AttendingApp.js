@@ -38,8 +38,15 @@ var AttendingApp = React.createClass({
 	render: function() {
 		var attendeesList;
 		if (this.state.isReady) {
+			var iter=0;
+			var itLength=this.state.attendees.length;
+			var itStart=Math.floor((Math.random() * 1800) + 1);
 			attendeesList = this.state.attendees.map(function(person) {
-				return <li key={person.id}><a href={person.url}><img width="40" height="40" alt={person.name} className="img-circle" src={person.photo ? person.photo : "/images/avatar.png"} /></a></li>
+				iter++;
+				if (iter>=itStart && iter<(itStart+50) ){
+					return <li key={person.id}><a href={person.url}><img width="40" height="40" alt={person.name} className="img-circle" src={person.photo ? person.photo : "/images/avatar.png"} /></a></li>
+
+				}
 			});
 		}
 		return (
