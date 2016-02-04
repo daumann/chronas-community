@@ -80,11 +80,57 @@ exports = module.exports = function(req, res) {
             });
             //logger.info("results out:", results)
 			locals.data.threads = results;
-			next(err);
+
+            var iter = 0;
+            for (var i=0; i<locals.data.threads.length; i++)  (function(i,length,errr){
+
+                locals.data.threads[i].populateRelated('comments[author]', function () {
+                    locals.data.threads[i].commentCount = locals.data.threads[i].comments.length;
+                    iter++;
+                    if ((iter) === length){
+                        next(errr);
+                    }
+                });
+
+            }) (i,locals.data.threads.length,err);
+
 		});
 		
 	});
 
+/*
+    // Load all thread s for comment length
+    view.on('init', function(next) {
+
+        Thread.model.find()
+            .where('state', 'published')
+            .populate('author categories')
+            .exec(function(err, thread) {
+
+                if (err) return res.err(err);
+
+                if (thread.state == 'published' || (req.user && req.user.isAdmin) || (req.user && thread.author && (req.user.id == thread.author.id))) {
+
+                    logger.info("comments",thread)
+
+                    locals.thread = thread;
+                    locals.thread.populateRelated('comments[author]', function () {
+                        locals.thread.comments.sort(function(a, b){
+                            return b.rating-a.rating
+                        });
+                        next();
+                    });
+                    locals.page.title = 'Chronas: ' + thread.title;
+
+
+                } else {
+                    return res.notfound('Thread not found');
+                }
+
+            });
+
+    });
+*/
     view.on('post', { action: 'upvote-thread' }, function() {
 
         if(req.user !== undefined){
