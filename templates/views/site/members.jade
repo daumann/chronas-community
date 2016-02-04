@@ -17,7 +17,7 @@ mixin member(member)
 	li.member-item
 		.member.member--card
 			.member-section.member__photo
-				a(href=member.url): img(src=(member.photo.exists ? member._.photo.thumbnail(360,360) : member.avatarUrl || '/images/avatar.png'), alt=member.name.full, width=180, height=180)
+				a(href=member.url): img(src=(member.photo.exists ? member._.photo.thumbnail(180,180) : member.avatarUrl || '/images/avatar.png'), alt=member.name.full, width=180, height=180)
 			.member-section.member__info
 				h5.member__title(class=(member.bio.html ? null : 'member__title-only')): a(href=member.url)= member.name.full
 				if member.bio.html
