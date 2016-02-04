@@ -20,7 +20,7 @@ mixin thread(thread)
                 .post-author: =space
                     | <span>&nbsp;</span>
                     a(href='/member/' + thread.author.name.full.replace(/ /g,"-").toLowerCase())=thread.author.name.full
-                .date-stamp: em=" submitted " + moment(thread.publishedDate).fromNow() + " by "
+                .date-stamp: em=thread.commentCount +  " comments - " + moment(thread.publishedDate).fromNow() + " by "
                 
 
             h4(itemprop='name').post-title.mv-1.talkk
