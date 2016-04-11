@@ -1,0 +1,38 @@
+extends ../../layouts/default
+
+include ../../mixins/organiser
+
+block intro
+	.page-intro: .container
+		<img src="/images/chronasAlternativeLogo.png" width="200" height="140">
+		p.lead Chronas is a history project linking Wikipedia and Wikidata with a chronological and cartographical view.
+
+block content
+	.page-content
+		.section.highlight: .container
+			h5 We are in Beta phase!
+			p Our <a href="/history" ,="" target="_blank">history application</a> is ready for the first beta release. The data is still lacking in places and inconsistent in others but the current read-only version should serve as a prove of concept and as the first step towards a crowd sourced dynamic history project. Have a look at the planned <a href="#roadmap">roadmap</a> below.
+			
+		
+		//- CODE
+		.section: .container-sm
+			h5 What is Chronas?
+			p The name Chronas is a combination of Chronos and Atlas indicating the chronological and cartographical approach of the history application.
+			p The initial idea in mid-2014 was to add a time slider to a Google Maps like application, making it possible to travel back in time: watching realms being founded, grow and disappear again. The goal was to get a better understanding of how the world's history is interconnected. <i>What happened in Asia when Rome dominated Europe? What happened in Arabia when Kublai Khan proclaimed himself the emperor of China?</i>
+			p At a later stage it was decided not only to use political land boundaries but also to add religious and cultural context to a given moment in time. Then markers were added of people living at the selected year, then markers for cities, buildings, battles... later again, analytical capabilities and an interactive image gallery. As a foundation, our local Chronas database contains over 31 223 datalayers with about 4.6 Gigabyte of data to explore. Have a look at the <a href="/blog" , target="_blank">development blog</a>, if you are interested in the implementations.
+			p The framework is set for the next phase: to make the content of Chronas editable in the way of OpenStreetMap or Wikipedia. Chronas' moderators will have the rights to add and edit Wikipedia page links and all other data such as the coloring by ruler, religion and culture of a specific time period.
+			h5#roadmap Roadmap or Future of Chronas
+			p The first development phase took about one year to complete. The basic features are in place and after the first couple of months after release the feedback of the users will decide how the project will move forward.
+			p The current data is merely a starting point, containing a lot of inconsistencies, gaps and inaccuracies. The real potential of Chronas can only be reached when it is possible for users to moderate datalayers. This next step will utilize the underlying OpenStreetMap project uMap which makes it possible to interactively add and edit data which will be added to the Chronas' datalayers as well as the	Wikidata database. Periodically those two databases will be synced so that independent	additions and edits to the Wikidata database will also advance the Chronas project.
+			p There is no committed timeline for the development yet, I am considering crowd-funding to speed things along and put Chronas on firm ground. Please leave a comment how you feel about this approach in the associated thread in the <a href="/talk",target="_blank">talk</a> section.
+			h5 Author
+			p My name is Dietmar Aumann and I am a German software developer currently working in Belgium. In my spare time I developed the Beta of Chronas on and off for a period of 1 year mostly in early mornings (my baby daughter keeps me awake).
+			p You can find my Github <a href="https://github.com/daumann", target="_blank">here</a> and my analytics/visualization page <a href="http://www.dailydatainsights.com/", target="_blank">here</a>. Contact me via email at dietmar.aumann-at-gmail.com
+			hr.mv-3
+			h5 Credits
+			p Have a look at the long list of used resources in the <a href="/credits" target="_blank">Credits</a> section. During development much was borrowed from others, most notably the <a href="https://github.com/JedWatson/sydjs-site" ,="" target="_blank">SydJs website</a> fork which serves in a modified form as this community site and the <a href="https://github.com/umap-project/umap" ,="" target="_blank">uMap project</a> on which the history application is based.</p>
+
+block js
+	// twitter
+	script.
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

@@ -79,6 +79,7 @@ exports = module.exports = function(app) {
 	app.get('/about', routes.views.about);
     app.get('/history', routes.views.history);
 	app.all('/history', routes.views.history);
+    app.all('/spinoff', routes.views.spinoff);
 	app.get('/moderating', routes.views.mentoring);
 
 	//app.get('/showbag', routes.views.showbag);
