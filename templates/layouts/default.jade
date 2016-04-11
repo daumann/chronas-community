@@ -4,80 +4,89 @@ include ../mixins/auth/auth-forms
 doctype html
 html
 
-	//- HTML HEAD
-	head
-		if env == 'production' && chartbeat_property && chartbeat_domain
-			script.
-				var _sf_startpt=(new Date()).getTime()
-		
-		meta(charset="utf-8")
-		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
-		meta(name="description",  content="Chronas is a history project linking Wikipedia to a dynamic map with a time slider.")
-		meta(name="keywords", ontent="Chronas, History, Map, Time, Wikipedia, Map with Time Slider, google maps, leaflet, time slider, crowd sourced, community")
-		
-		title= page.title
-		link(rel='logo', type='image/png', href='/images/CPsmall.png')
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
-		link(href="/styles/site.min.css", rel="stylesheet")
-		
-		if user && user.canAccessKeystone
-			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+    //- HTML HEAD
+    head
+        if env == 'production' && chartbeat_property && chartbeat_domain
+            script.
+                var _sf_startpt=(new Date()).getTime()
 
-		block css
-		block head
+        meta(charset="utf-8")
+        meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+        meta(name="description",  content="Chronas is a history project linking Wikipedia to a dynamic map with a time slider.")
+        meta(name="keywords", ontent="Chronas, History, Map, Time, Wikipedia, Map with Time Slider, google maps, leaflet, time slider, crowd sourced, community")
 
-	//- HTML BODY
-	body(class=section ? 'sitesection-' + section : null)
-		.site-wrapper.has-sticky-footer
+        title= page.title
+        link(rel='logo', type='image/png', href='/images/CPsmall.png')
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(href="/styles/site.min.css", rel="stylesheet")
 
-			//- SITE HEADER
-			include ../includes/layout/header
-			
-			//- SITE BODY
-			block body
-				main.site-body(role='main')
+        if user && user.canAccessKeystone
+            link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
-					block intro
+        block css
+        block head
 
-					block flash-messages
-						+flash-messages(messages)
+    //- HTML BODY
+    body(class=section ? 'sitesection-' + section : null)
+        .site-wrapper.has-sticky-footer
 
-					block content
-						
-			//- SITE FOOTER
-			block footer
-				include ../includes/layout/footer
+            //- SITE HEADER
+            if section == 'home'
+                include ../includes/layout/app-alert
+
+            //- SITE HEADER
+            include ../includes/layout/header
+            //- SITE BODY
+            block body
+                main.site-body(role='main')
+
+                    block intro
+
+                    block flash-messages
+                        +flash-messages(messages)
+
+                    block content
+
+            //- SITE FOOTER
+            block footer
+                include ../includes/layout/footer
 
 
-		//- MODALS
-		block modal
-		if !user
-			#modal-auth(tabindex="-1", role="dialog", aria-labelledby="signin", aria-hidden="true").modal.fade
-				.modal-dialog
-					.modal-content
-						+auth-forms({ modal: true, initial: 'signin' })
+        //- MODALS
+        block modal
+        if !user
+            #modal-auth(tabindex="-1", role="dialog", aria-labelledby="signin", aria-hidden="true").modal.fade
+                .modal-dialog
+                    .modal-content
+                        +auth-forms({ modal: true, initial: 'signin' })
 
-	//- JAVASCRIPT
-	script.
+    //- JAVASCRIPT
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              ga('create', 'UA-76228947-1', 'auto');
+      ga('send', 'pageview');
+                    
+    script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
+    script(src='/js/lib/bootstrap/collapse.js')
+    script(src='/js/lib/bootstrap/dropdown.js')
+    script(src='/js/lib/bootstrap/modal.js')
 
-	script(src='/js/lib/jquery/jquery-1.10.2.min.js')
-	script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
-	script(src='/js/lib/bootstrap/collapse.js')
-	script(src='/js/lib/bootstrap/dropdown.js')
-	script(src='/js/lib/bootstrap/modal.js')
+    //- Headroom
+    //-script(src="//cdn.jsdelivr.net/headroomjs/0.5.0/headroom.min.js")
+    //-script(src="//cdn.jsdelivr.net/headroomjs/0.5.0/jQuery.headroom.min.js")
+    //-script(src='/js/common/header.js')
 
-	//- Headroom
-	//-script(src="//cdn.jsdelivr.net/headroomjs/0.5.0/headroom.min.js")
-	//-script(src="//cdn.jsdelivr.net/headroomjs/0.5.0/jQuery.headroom.min.js")
-	//-script(src='/js/common/header.js')
+    if user && user.canAccessKeystone
+        script(src='/keystone/js/content/editor.js')
 
-	if user && user.canAccessKeystone
-		script(src='/keystone/js/content/editor.js')
-	
-	script(src='/js/ui.js')
+    script(src='/js/ui.js')
 
-	
-	//- ANALYTICS
-	include ../includes/layout/analytics
-	
-	block js
+
+    //- ANALYTICS
+    include ../includes/layout/analytics
+
+    block js
