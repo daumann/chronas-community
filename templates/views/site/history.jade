@@ -279,12 +279,23 @@ block content
 
 block js
     script(src='/package/unitegallery/js/jquery-11.0.min.js')
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
     script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     script(src='/package/toggle/bootstrap-toggle.min.js')
     script(src='/package/unitegallery/js/unitegallery.js')
     script(src='/package/unitegallery/themes/grid/ug-theme-grid.js')
 
     script.
+        $(function() {
+            $('.dismiss-alert').click(function () {
+                $('#app-alert').hide();
+                $.cookie('dismissAppBanner', true);
+            });
+
+            if (!$.cookie('dismissAppBanner')) {
+                $('#app-alert').removeClass('hidden-md hidden-lg');
+            }
+        })
         incrementLoaded = 6;
         function mobilecheck() {
             var check = false;

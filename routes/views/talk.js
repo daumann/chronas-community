@@ -14,7 +14,7 @@ exports = module.exports = function(req, res) {
 	
 	// Init locals
 	locals.section = 'talk';
-	locals.page.title = 'Chronas Community';
+	locals.page.title = 'Chronas';
 	locals.filters = {
 		category: req.params.category
 	};

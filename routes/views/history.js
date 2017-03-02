@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res),
         locals = res.locals;
 
-    locals.page.title = 'Chronas: History';
+    locals.page.title = 'Chronas';
 
     locals.section = 'history';
 

@@ -17,7 +17,7 @@ exports = module.exports = function(req, res) {
     
     locals.section = 'home';
     locals.meetup = {};
-    locals.page.title = 'Chronas Community';
+    locals.page.title = 'Chronas';
     
     locals.rsvpStatus = {};
 

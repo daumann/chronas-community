@@ -1,14 +1,14 @@
 $(function() {
-/*
+
 	$('.dismiss-alert').click(function () {
 		$('#app-alert').hide();
 		$.cookie('dismissAppBanner', true);
 	});
 
 	if (!$.cookie('dismissAppBanner')) {
-		$('#app-alert').removeClass('hidden-md hidden-lg');
+	    $('#app-alert').removeClass('hidden-md hidden-lg');
 	}
-*/
+
 
 
 	// Nav
