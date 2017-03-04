@@ -1,10 +1,11 @@
 var _ = require('underscore');
-var keystone = require('keystone');
-var browserify = require('browserify-middleware');
 var babelify = require('babelify');
+var bodyParser = require('body-parser');
+var browserify = require('browserify-middleware');
+var clientConfig = require('../client/config');
+var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-var clientConfig = require('../client/config');
 
 // Common Middleware
 keystone.pre('routes', middleware.initErrorHandlers);
@@ -13,54 +14,62 @@ keystone.pre('routes', middleware.loadSponsors);
 keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors
-keystone.set('404', function(req, res, next) {
+keystone.set('404', function (req, res, next) {
 	res.notfound();
 });
 
 // Handle other errors
-keystone.set('500', function(err, req, res, next) {
+keystone.set('500', function (err, req, res, next) {
 	var title, message;
 	if (err instanceof Error) {
 		message = err.message;
 		err = err.stack;
 	}
-	res.err(err, title, message);
+	res.status(500).render('errors/500', {
+		err: err,
+		errorTitle: title,
+		errorMsg: message
+	});
 });
 
 // Load Routes
 var routes = {
 	api: importRoutes('./api'),
 	views: importRoutes('./views'),
-	auth: importRoutes('./auth')
+	auth: importRoutes('./auth'),
 };
 
 // Bind Routes
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
 
 	// Browserification
 	app.get('/js/packages.js', browserify(clientConfig.packages, {
 		cache: true,
-		precompile: true
+		precompile: true,
 	}));
 
 	app.use('/js', browserify('./client/scripts', {
 		external: clientConfig.packages,
-		transform: ['babelify']
+		transform: [
+			babelify.configure({
+				presets: ['es2015', 'react']
+			}),
+		],
 	}));
-	
+
 	// Allow cross-domain requests (development only)
-	if (process.env.NODE_ENV != 'production') {
+	if (process.env.NODE_ENV !== 'production') {
 		console.log('------------------------------------------------');
 		console.log('Notice: Enabling CORS for development.');
 		console.log('------------------------------------------------');
-		app.all('*', function(req, res, next) {
+		app.all('*', function (req, res, next) {
 			res.header('Access-Control-Allow-Origin', '*');
 			res.header('Access-Control-Allow-Methods', 'GET, POST');
 			res.header('Access-Control-Allow-Headers', 'Content-Type');
 			next();
 		});
 	}
-	
+
 	// Website
 	app.get('/', routes.views.index);
 	//app.get('/meetups', routes.views.meetups);

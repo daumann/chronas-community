@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 var request = require('superagent');
 var RSVPStore = require('../stores/RSVPStore');
 
@@ -18,19 +18,19 @@ var HeroApp = React.createClass({
 	},
 
 	componentWillUnmount: function() {
-		RSVPStore.removeChangeListener(this.updateStoreFromState);
+		RSVPStore.removeChangeListener(this.updateStateFromStore);
 	},
 
 	updateStateFromStore: function() {
 		this.setState({
+			isBusy: RSVPStore.isBusy(),
 			isReady: RSVPStore.isLoaded(),
 			meetup: RSVPStore.getMeetup(),
-			rsvp: RSVPStore.getRSVP()
+			rsvp: RSVPStore.getRSVP(),
 		});
 	},
 
 	toggleRSVP: function(attending) {
-		var self = this;
 		RSVPStore.rsvp(attending);
 	},
 
@@ -46,6 +46,14 @@ var HeroApp = React.createClass({
 		return (
 			<div className="hero-button">
 				<div className="alert alert-success mb-0 text-center">loading...</div>
+			</div>
+		);
+	},
+
+	renderBusy: function() {
+		return (
+			<div className="hero-button">
+				<div className="alert alert-success mb-0 text-center">hold on...</div>
 			</div>
 		);
 	},
@@ -68,11 +76,13 @@ var HeroApp = React.createClass({
 				{this.renderWelcome()}
 				<div className="hero-button">
 					<div id="next-meetup" data-id={this.state.meetup._id} className="form-row meetup-toggle">
-						<div className="col-xs-6">
-							<button type="button" onClick={this.toggleRSVP.bind(this, true)} className={"btn btn-lg btn-block btn-default js-rsvp-attending" + attending}>Yes</button>
+						<div className="col-xs-8">
+							<button type="button" onClick={this.toggleRSVP.bind(this, true)} className={"btn btn-lg btn-block btn-default js-rsvp-attending " + attending}>
+								<span>You're coming!</span>
+							</button>
 						</div>
-						<div className="col-xs-6">
-							<button type="button" onClick={this.toggleRSVP.bind(this, false)} className={"btn btn-lg btn-block btn-default js-rsvp-decline" + notAttending}>No</button>
+						<div className="col-xs-4">
+							<button type="button" onClick={this.toggleRSVP.bind(this, false)} className={"btn btn-lg btn-block btn-default btn-decline js-rsvp-decline " + notAttending}>Can't make it?</button>
 						</div>
 					</div>
 				</div>
@@ -106,6 +116,10 @@ var HeroApp = React.createClass({
 		if (!this.state.isReady) {
 			return this.renderLoading();
 		}
+		if (this.state.isBusy) {
+			return this.renderBusy();
+		}
+
 		if (this.state.user) {
 			if (this.state.meetup.rsvpsAvailable) {
 				if (this.state.rsvp.exists) {
