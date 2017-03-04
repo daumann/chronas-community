@@ -28,45 +28,6 @@ block intro
 					#react-hero-button
 			//- Details
 			section.hero-details: .container
-				//.row: .col-sm-10.col-sm-offset-1: .row
-				//	
-				//	//- Description
-				//	.col-md-5
-				//		//- h3.mb-1 The meetup
-				//		.description!= meetup.description
-				//
-				//	//- Talks
-				//	.col-md-6.col-md-offset-1
-				//		if meetup.talks.length
-				//			//- h3.mb-1 The talks
-				//			.meetup-talks
-				//				ul.list-unstyled.talks-list
-				//					each talk in meetup.talks
-				//						li.talk.row
-				//							.col-xs-3
-				//								.talk__speakers
-				//									if talk.who.length
-				//										each speaker, i in talk.who
-				//											img(src=speaker.photo.exists ? speaker._.photo.thumbnail(320,320) : speaker.avatarUrl || '/images/avatar.png', width=160, height=160, alt=speaker.name.full, class=talk.who.length > 1 ? 'talk__photo--mini' : null).talk__photo
-				//									else
-				//										img(src='/images/avatar.png', width=160, height=160, alt='There is no speaker...').talk__photo
-				//								//- if talk.who.length
-				//									.talkers
-				//										for photo in talk.who
-				//											img(src='http://fillmurray.com/100/100').img-circle
-				//							.col-xs-9
-				//								.talk-summary
-				//									h5.title= talk.name
-				//									p.subtitle.mb-1 by 
-				//										each speaker, i in talk.who
-				//											if i
-				//												| , 
-				//											if speaker.isPublic 
-				//												a(href=speaker.url)=speaker.name.full
-				//											else
-				//												=speaker.name.full
-				//									.summary!= talk.description
-				//- Attending
 				section.attending
 					#react-attending
 
