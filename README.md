@@ -14,7 +14,7 @@ _If you're looking to work on the Chronas site and want access to our accounts, 
 
 ### Install Node.js and MongoDB
 
-You'll need node 0.10.x and npm 1.3.x installed to run Chronas. The easiest way is to download the installers from [nodejs.org](http://nodejs.org).
+You'll need node (tested with v6.2.1) and npm installed to run Chronas. The easiest way is to download the installers from [nodejs.org](http://nodejs.org).
 
 You'll also need MongoDB 2.4.x - if you're on a Mac, the easiest way is to install [homebrew](http://brew.sh) and then run `brew install mongo`.
 
@@ -34,7 +34,7 @@ The only line you **need** to add to your `.env` file is a valid `CLOUDINARY_URL
 
 ### Running Chronas
 
-Once you've set up your configuration, run `node keystone` to start the server.
+Once you've set up your configuration, run `node keystone` or `npm start` to start the server.
 
 By default, [Keystone](http://keystonejs.com) will connect to a new local MongoDB database on your localhost called `chronas`, and create a new Admin user that you can use to log in with using the email address `user@keystonejs.com` and the password `admin`.
 
