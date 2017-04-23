@@ -1,0 +1,175 @@
+extends ../../layouts/default
+
+block intro
+	link(href='/package/unitegallery/css/unite-gallery.css', rel='stylesheet', type='text/css')
+
+//- BODY
+block content
+	article#showbag
+		header.showbag-header
+			.container: .row: .col-sm-10.col-sm-offset-1
+				h1.text-center.mb-0 Media
+				p.lead.text-center.mt-1 Writing a blog post? Need illustrations of how the app works? Here's a bag of images and videos showcasing the history application.
+				p.text-center.mt-1 *This section will be continuously updated
+			.showbag-hero
+				.col-sm-10.col-sm-offset-1
+					h2 Images
+					#galleryImages(style='margin:0px auto;display:none;')
+						a(href='/images/showbag/Chronas Poster Discovery.jpg')
+							img(src='/images/showbag/Chronas Poster Discovery.jpg', alt="Poster 'Discovery'", data-image='/images/showbag/Chronas Poster Discovery.jpg')
+						a(href='/images/showbag/Chronas Poster Bright.jpg')
+							img(src='/images/showbag/Chronas Poster Bright.jpg', alt="Poster 'Bright'", data-image='/images/showbag/Chronas Poster Bright.jpg')
+						a(href='/images/showbag/Chronas Poster Dark.jpg')
+							img(src='/images/showbag/Chronas Poster Dark.jpg', alt="Poster 'Dark'", data-image='/images/showbag/Chronas Poster Dark.jpg')
+						a(href='/images/showbag/screenshot1.jpg')
+							img(src='/images/showbag/screenshot1.jpg', alt="Screenshot '1'", data-image='/images/showbag/screenshot1.jpg')
+						a(href='/images/showbag/screenshot2.jpg')
+							img(src='/images/showbag/screenshot2.jpg', alt="Screenshot '2'", data-image='/images/showbag/screenshot2.jpg')
+						a(href='/images/showbag/screenshot3.jpg')
+							img(src='/images/showbag/screenshot3.jpg', alt="Screenshot '3'", data-image='/images/showbag/screenshot3.jpg')
+						a(href='/images/showbag/realm.jpg')
+							img(src='/images/showbag/realm-thumb.jpg', alt="Screenshot '4'", data-image='/images/showbag/realm.jpg')
+						a(href='/images/showbag/features.jpg')
+							img(src='/images/showbag/features-thumb.jpg', alt="Screenshot '5'", data-image='/images/showbag/features.jpg')
+						a(href='/images/showbag/religion.jpg')
+							img(src='/images/showbag/religion-thumb.jpg', alt="Screenshot 'Religion'", data-image='/images/showbag/religion.jpg')
+						a(href='/images/showbag/population.jpg')
+							img(src='/images/showbag/population-thumb.jpg', alt="Screenshot 'Population'", data-image='/images/showbag/population.jpg')
+						a(href='/images/showbag/editData2.jpg')
+							img(src='/images/showbag/editData2.jpg', alt="Assign Area Data", data-image='/images/showbag/editData2.jpg')
+						a(href='/images/showbag/editData1.jpg')
+							img(src='/images/showbag/editData1.jpg', alt="Create New Area Data", data-image='/images/showbag/editData1.jpg')
+						a(href='/images/showbag/Chronas Analytics.jpg')
+							img(src='/images/showbag/Chronas Analytics.jpg', alt="Analytics", data-image='/images/showbag/Chronas Analytics.jpg')
+						a(href='/images/showbag/Chronas Banner Bright.jpg')
+							img(src='/images/showbag/Chronas Banner Bright.jpg', alt="Banner 'Bright'", data-image='/images/showbag/Chronas Banner Bright.jpg')
+						a(href='/images/showbag/Chronas Banner Dark.jpg')
+							img(src='/images/showbag/Chronas Banner Dark.jpg', alt="Banner 'Dark'", data-image='/images/showbag/Chronas Banner Dark.jpg')
+						a(href='/images/showbag/Chronas Banner Kickstarter.jpg')
+							img(src='/images/showbag/Chronas Banner Kickstarter.jpg', alt="Banner 'Kickstarter'", data-image='/images/showbag/Chronas Banner Kickstarter.jpg')
+						a(href='/images/showbag/screenshot kickstarter.jpg')
+							img(src='/images/showbag/screenshot kickstarter.jpg', alt="screenshot 'Kickstarter'", data-image='/images/showbag/screenshot kickstarter.jpg')
+
+			.showbag-hero
+				.col-sm-10.col-sm-offset-1
+					h2 Videos
+					#galleryVideos(style='margin:0px auto;display:none;')
+						a(href='https://www.youtube.com/watch?v=0yqcCK66Az4')
+							img(alt='Introduction Video', data-type='youtube', src='/images/showbag/features-thumb.jpg', data-videoid='0yqcCK66Az4', style='display:none')
+						a(href='https://www.youtube.com/watch?v=8FIKaCAK2Gg')
+							img(alt='Political Boundaries Timelaps', data-type='youtube', src='/images/showbag/realm-thumb.jpg', data-videoid='8FIKaCAK2Gg', style='display:none')
+						a(href='https://www.youtube.com/watch?v=PBiQ3A-wWQM')
+							img(alt='Religions Timelaps', data-type='youtube', src='/images/showbag/religion-thumb.jpg', data-videoid='PBiQ3A-wWQM', style='display:none')
+						a(href='https://www.youtube.com/watch?v=0yNiyEqSk0M')
+							img(alt='Population Timelaps', data-type='youtube', src='/images/showbag/population-thumb.jpg', data-videoid='0yNiyEqSk0M', style='display:none')
+
+			.showbag-buttons
+				.container: .row
+					.col-sm-4
+						.text-center: a(href='/images/showbag/chronas-image-collection.zip').btn.btn-primary.btn-lg.btn-block
+							span.entypo.entypo-down &nbsp;
+							| Download all images
+					.col-sm-4
+						.text-center: a(href='http://github.com/daumann/chronas-application', target='_blank').btn.btn-primary.btn-lg.btn-block
+							span.entypo-social.entypo-github &nbsp;
+							| Source code map app
+					.col-sm-4
+						.text-center: a(href='http://github.com/daumann/chronas-community', target='_blank').btn.btn-primary.btn-lg.btn-block
+							span.entypo-social.entypo-github &nbsp;
+							| Source code community site
+		main.showbag-main
+			.container
+				hr
+				section
+					h4.text-center And some logos...
+					.row: .col-sm-8.col-sm-offset-2
+						.showbag-createdwith
+							img(src='/images/showbag/logo1.png', style='height: 120px; width: auto', title='Logo')
+							img(src='/images/showbag/logo4.jpg', style='height: 60px; width: auto; margin-left: 4em; margin-right: 2em;', title='Logo Name')
+							img(src='/images/showbag/logo3.png', style='height: 128px; width: auto', title='Alternative Logo')
+				section
+					h4.text-center ... thanks for spreading the word!
+
+block js
+	script(src='/package/unitegallery/js/jquery-11.0.min.js')
+	script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
+	script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+	script(src='/package/toggle/bootstrap-toggle.min.js')
+	script(src='/package/unitegallery/js/unitegallery.js')
+	script(src='/package/unitegallery/themes/tiles/ug-theme-tiles.js')
+	script.
+		var apiGallery, apiVideo;
+		jQuery(document).ready(function () {
+
+			apiVideo = jQuery("#galleryVideos").unitegallery({
+				theme_appearance_order: "keep",
+				tile_show_link_icon: true,
+				tile_enable_border: true,
+				tile_border_color: "#ffffff",
+				tile_enable_outline: true,
+				tile_outline_color: "#b6b6b6",
+				tile_shadow_color: "#999",
+				tile_overlay_opacity: 0.4,
+				tile_enable_image_effect: true,
+				tile_image_effect_type: "blur",
+				tile_image_effect_reverse: true,
+				tile_enable_textpanel: true,
+				tile_textpanel_bg_color: "#333",
+				tile_textpanel_bg_opacity: 0.8,
+				tile_textpanel_title_color: "#999",
+				tile_textpanel_title_text_align: "center",
+				tile_textpanel_title_font_family: '"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif',
+				tiles_col_width: 370,
+				tiles_space_between_cols: 30,
+				lightbox_slider_image_shadow: false,
+
+				lightbox_type: "compact",
+				lightbox_textpanel_enable_title: true,
+				lightbox_textpanel_enable_description: true,
+				lightbox_textpanel_desc_color: "e5e5e5",
+				lightbox_slider_image_border: false,
+				lightbox_overlay_opacity: 0.9
+			})
+
+			apiGallery = jQuery("#galleryImages").unitegallery({
+				gallery_theme: "tiles",
+				tiles_type: "justified",
+				tile_show_link_icon:true,
+				theme_enable_fullscreen_button: true,	//show, hide the theme fullscreen button. The position in the theme is constant
+				theme_enable_play_button: true,			//show, hide the theme play button. The position in the theme is constant
+				theme_enable_hidepanel_button: true,	//show, hide the hidepanel button
+				theme_enable_text_panel: true,			//enable the panel text panel.
+
+				theme_text_padding_left: 20,			//left padding of the text in the textpanel
+				theme_text_padding_right: 5,			//right paddin of the text in the textpanel
+				theme_text_align: "left",				//left, center, right - the align of the text in the textpanel
+				theme_text_type: "title",				//title, description - text that will be shown on the text panel, title or description
+
+				theme_hide_panel_under_width: 480,		//hide panel under certain browser width, if null, don't hide
+				tile_enable_border: false,
+				tile_overlay_opacity: 0.4,
+				tile_enable_image_effect: true,
+				tile_image_effect_type: "blur",
+				tile_image_effect_reverse: true,
+				tile_enable_textpanel: true,
+				tile_textpanel_bg_color: "#333",
+				tile_textpanel_bg_opacity: 0.8,
+				tile_textpanel_title_color: "#999",		 //textpanel title color. if null - take from css
+				tile_textpanel_title_font_family: '"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif',	 //textpanel title font family. if null - take from css
+				tile_textpanel_title_text_align: "center",
+				lightbox_slider_image_shadow: false,
+
+				lightbox_type: "compact",
+				lightbox_textpanel_enable_title: true,
+				lightbox_textpanel_enable_description: true,
+				lightbox_textpanel_desc_color: "e5e5e5",
+				lightbox_slider_image_border: false,
+				lightbox_overlay_opacity: 0.9
+			});
+		});
+		
+		$(window).resize(function () {
+		//	api.resize($(window).width(), $("#galleryImages").height())
+			//$('.showbag-hero').height($(window).height());
+		});
+		$(window).trigger('resize');

@@ -1,6 +1,6 @@
 $(function() {
 
-	$('.dismiss-alert').click(function () {
+	$('.close-alert').click(function () {
 		$('#app-alert').hide();
 		$.cookie('dismissAppBanner', true);
 	});
