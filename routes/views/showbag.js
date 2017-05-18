@@ -1,5 +1,5 @@
 var keystone = require('keystone'),
-	_ = require('underscore');
+	_ = require('lodash');
 
 var User = keystone.list('User'),
 	Organisation = keystone.list('Organisation');
@@ -13,13 +13,13 @@ exports = module.exports = function(req, res) {
 	locals.page.title = 'Chronas Showbag';
 
 	Organisation.model.findOne().where('key', 'thinkmill').exec(function(err, thinkmill) {
-		if (err || !thinkmill) {
+	/*	if (err || !thinkmill) {
 			return view.render('errors/500');
 		}
 		locals.thinkmill = thinkmill;
 
 		view.query('members', User.model.find().where({organisation: thinkmill.id}));
-		view.render('site/showbag');
+	*/	view.render('site/showbag');
 
 	});
 	
