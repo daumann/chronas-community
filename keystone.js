@@ -1,7 +1,7 @@
 // Load .env for development environments
-var dote = require('dotenv')
+/*var dote = require('dotenv')
 dote.config({path: '.env'})
-dote.load();
+dote.load();*/
 // Initialise New Relic if an app name and license key exists
 if (process.env.NEW_RELIC_APP_NAME && process.env.NEW_RELIC_LICENSE_KEY) {
 	require('newrelic');

@@ -1,3 +1,4 @@
+
 {
   "name": "chronas",
   "version": "2.0.0",
@@ -16,6 +17,8 @@
     "babel-register": "6.7.2",
     "babelify": "7.2.0",
     "body-parser": "1.15.2",
+    "gulp": "3.9.1",
+    "gulp-zip": "4.0.0",       
     "browserify-middleware": "7.0.0",
     "classnames": "2.2.5",
     "connect-mongo": "1.1.0",
@@ -43,8 +46,8 @@
     "underscore": "^1.8.3"
   },
   "engines": {
-    "node": "~6.2.1",
-    "npm": "~3.9.3"
+    "node": "6.2.2",
+    "npm": "3.9.5"
   },
   "scripts": {
     "start": "node keystone.js",
