@@ -75,9 +75,11 @@ exports = module.exports = function(req, res) {
 		
 		q.exec(function(err, results) {
             //logger.info("results in:", results)
+            /*
             results.sort(function(a, b){
                 return b.rating-a.rating
             });
+            */
             //logger.info("results out:", results)
 			locals.data.threads = results;
 

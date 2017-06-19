@@ -36,9 +36,11 @@ exports = module.exports = function(req, res) {
                  */
 					locals.thread = thread;
 					locals.thread.populateRelated('comments[author]', function () {
+					    /*
                         locals.thread.comments.sort(function(a, b){
                             return b.rating-a.rating
                         });
+                        */
                         next();
                     });
 					locals.page.title = 'Chronas: ' + thread.title;
