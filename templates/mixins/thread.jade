@@ -17,13 +17,12 @@ mixin thread(thread)
             a(href='/talk/thread/' + thread.slug).post-image.talkk: img(src="/images/CPsmall.png", alt=thread.title).img-responsive
         .post-summary.talkk
             .post-byline
-                .post-author: =space
+				.date-stamp: em=thread.commentCount + ((thread.commentCount === 1) ? " comment - " : " comments - ") + moment(thread.publishedDate).fromNow() + " by "
+				.post-author: =space
                     | <span>&nbsp;</span>
                     a(href='/member/' + thread.author.name.full.replace(/ /g,"-").toLowerCase())=thread.author.name.full
-                .date-stamp: em=thread.commentCount + ((thread.commentCount === 1) ? " comment - " : " comments - ") + moment(thread.publishedDate).fromNow() + " by "
-                
 
-            h4(itemprop='name').post-title.mv-1.talkk
+            h5(itemprop='name').post-title.mv-1.talkk
                 a(href='/talk/thread/' + thread.slug, itemprop='url')=thread.title
             //-.post-content-brief(itemprop='description')!= thread.content.brief
     //-article(role="article", itemscope itemtype="http://schema.org/BlogPosting").blog-post
