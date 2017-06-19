@@ -1,5 +1,5 @@
 mixin post(post)
-    .col-sm-4
+    .card
         article(role="article", itemscope itemtype="http://schema.org/BlogPosting").post-card
             if post.image.exists
                 a(href='/blog/post/' + post.slug).post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
