@@ -39,8 +39,8 @@ exports = module.exports = function(req, res) {
 				errorMessage: 'There was an error creating your new thread:'
 			});
 		
-		// automatically pubish threads by admin users
-		if (locals.user.isAdmin) {
+		// always publish // automatically pubish threads by admin users
+		if (true /*locals.user.isAdmin*/) {
 			newThread.state = 'published';
 		}
 
