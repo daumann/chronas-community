@@ -286,7 +286,7 @@ block js
     script(src='/package/unitegallery/themes/grid/ug-theme-grid.js')
 
     script.
-		/*
+        /*
         $(function() {
             $('.close-alert').click(function () {
                 $('#app-alert').hide();
@@ -297,7 +297,7 @@ block js
                 $('#app-alert').removeClass('hidden-md hidden-lg');
             }
         })
-		*/
+        */
         incrementLoaded = 6;
         function mobilecheck() {
             var check = false;
@@ -637,7 +637,7 @@ block js
                         $('#chronasWindow').contents().find("#A-Population").parent().click()
                 }
         
-        	document.getElementById("chronasWindow").contentWindow.timeline2.setCustomTime(new Date().setFullYear(nY));
+            document.getElementById("chronasWindow").contentWindow.timeline2.setCustomTime(new Date().setFullYear(nY));
             document.getElementById("chronasWindow").contentWindow.playback.setCursor(new Date().setFullYear(nY))
                 
             setTimeout(function () {
@@ -653,7 +653,7 @@ block js
                     
                          $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                          setTimeout(function () {
-                         	$('#chronasWindow').contents().find("#peopleChecked").parent().click()
+                            $('#chronasWindow').contents().find("#peopleChecked").parent().click()
                          }, 500);
                 }
                 
