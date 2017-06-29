@@ -19,6 +19,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					each link in navLinks
 						li(class=(section == link.key ? 'nav-item-' + link.key + ' active' : 'nav-item-' + link.key)): a(href=link.href)= link.label
 					//li: a(href='mailto:craig.sharkie+sydjs@gmail.com') Contact
+
 				ul.navbar-nav.navbar-nav--right
 					if user
 						li: a(href='/me').user.hidden-xs
@@ -30,4 +31,11 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					else
 						li: a(href='/signin', data-from=page.path, data-initial='signin').js-auth-trigger Sign in
 						li: a(href='/join', data-from=page.path).js-auth-trigger Join
+						
+				form(action='https://www.paypal.com/cgi-bin/webscr', method='post', target='_top').donateButton
+					input(type='hidden', name='cmd', value='_s-xclick')
+					input(type='hidden', name='hosted_button_id', value='DLRUFHZSBTBNN')
+					input(type='image', src='/images/PPdonate.png', style='height: 34px', border='0', name='submit', alt='PayPal – The safer, easier way to pay online!')
+					img(alt='', border='0', src='https://www.paypalobjects.com/de_DE/i/scr/pixel.gif', width='1', height='1')
+					
 //-.header-placeholder
